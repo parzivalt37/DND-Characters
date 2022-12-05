@@ -1,3 +1,5 @@
+package com.dndcharacters.s1project;
+
 public class Constants {
     public enum Races {
         Aarakocra,
@@ -71,7 +73,6 @@ public class Constants {
         MarkOfMakingHuman,
         MarkOfPassageHuman,
         MarkOfSentinelHuman,
-        Human,
         Kalashtar,
         Kenku,
         Kobold,
@@ -134,5 +135,57 @@ public class Constants {
         SleightOfHand,
         Stealth,
         Survival
+    }
+
+    public enum Alignment {
+        LawfulGood,
+        LawfulNeutral,
+        LawfulEvil,
+        NeutralGood,
+        TrueNeutral,
+        NeutralEvil,
+        ChaoticGood,
+        ChaoticNeutral,
+        ChaoticEvil
+    }
+
+    public enum DamageTypes {
+        Acid,
+        Bludgeoning,
+        Cold,
+        Fire,
+        Force,
+        Lightning,
+        Necrotic,
+        Piercing,
+        Poison,
+        Psychic,
+        Radiant,
+        Slashing,
+        Thunder
+    }
+
+    public enum Classes {
+        Barbarian,
+        Bard,
+        Cleric,
+        Druid,
+        Fighter,
+        Monk,
+        Paladin,
+        Ranger,
+        Rogue,
+        Sorcerer,
+        Warlock,
+        Wizard
+    }
+
+    public enum Ability {
+        Strength,
+        Dexterity,
+        Constitution,
+        Intelligence,
+        Wisdom,
+        Charisma
     }
 }
