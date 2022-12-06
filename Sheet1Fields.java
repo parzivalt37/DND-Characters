@@ -2,6 +2,8 @@ package com.dndcharacters.s1project;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.EnumSet;
+import com.dndcharacters.s1project.GameValues.*;
 
 /**
  * Class containing the fields from the first page of the D&D 5E character sheet
@@ -10,6 +12,7 @@ import java.util.ArrayList;
  * @version 12.5.2022
  */
 public class Sheet1Fields implements Serializable {
+
     //basic character information (header of page)
     /** Class & level field*/
     private String classLevel;
@@ -20,22 +23,16 @@ public class Sheet1Fields implements Serializable {
     /** Character name field*/
     private String cName;
     /** Race field*/
-    private String race;
+    private Constants.Races race;
     /** Character alignment field*/
     private Constants.Alignment alignment;
 
 
     /** ArrayList of the 6 attributes of a D&D character
      * Order: [strength, dexterity, constitution, intelligence, wisdom, charisma]
+     * Also contains values for modifiers and saving throws
      */
-    private ArrayList<Constants.Ability> abilities;
-    /** ArrayList of modifiers for the 6 attributes
-     * Order: [strength, dexterity, constitution, intelligence, wisdom, charisma[
-     */
-    private ArrayList<Constants.Ability> modifiers;
-
-    /** ArrayList of the 6 saving throws, ordered the same way as attributes */
-    private ArrayList<Ability> savingThrows;
+    private ArrayList<Ability> abilities;
 
     //Acrobatics, animalhandling, arcana, athletics, deception, history,
     //insight, intimidation, investigation, medicine, nature, perception,
@@ -72,28 +69,6 @@ public class Sheet1Fields implements Serializable {
     private String otherProficiencies;
     //equipment
 
-    /*
-    * RECORDS
-    * */
-    /** Record for an Attack (also counts as a spell)
-     * @param name name of attack/spell
-     * @param atkBonus attack bonus of attack/spell
-     * @param damageType type of damage dealt by attack/spell*/
-    private record Attack(String name, int atkBonus, String damageType) implements Serializable {}
-    /** Record for Skills
-     * @param name name of skill
-     * @param val value of skill
-     */
-    private record Skill(String name, int val) implements Serializable {}
-    /** Record for Ability
-     * @param a Ability enum value of which ability is being assigned
-     * @param val value of ability */
-    private record Ability(Constants.Ability a, int val) implements Serializable {}
-    /** Record for Currency
-     * @param type type of currency
-     * @param val quantity of currency */
-    private record Currency(Constants.CurrencyType type, int val) implements Serializable {}
-
 
     /*
     * CONSTRUCTOR
@@ -103,12 +78,23 @@ public class Sheet1Fields implements Serializable {
         background = "";
         pName = "";
         cName = "";
-        race = "";
+        race = Constants.Races.DEFAULT;
         alignment = Constants.Alignment.TrueNeutral;
+
+        //instantiation and assignment of abilities arraylist
         abilities = new ArrayList<>();
-        modifiers = new ArrayList<>();
-        savingThrows = new ArrayList<>();
+        EnumSet.allOf(Constants.Ability.class).forEach(a -> abilities.add(new Ability(a, 0, 0, 0)));
+        //instantiation and assignment of skills arraylist
         skills = new ArrayList<>();
+        EnumSet.allOf(Constants.Skills.class).forEach(s -> skills.add(new Skill(s, 0)));
+        //instantiation of attacks arraylist: this one is not assigned initial values because attacks are based on user
+        //preference and not a predefined list
+        attacks = new ArrayList<>();
+        //instantiation and assignment of currency arraylist
+        currency = new ArrayList<>();
+        EnumSet.allOf(Constants.CurrencyType.class).forEach(c -> currency.add(new Currency(c, 0)));
+
+
         inspiration = false;
         proficiencybonus = 0;
         armorclass = 0;
@@ -136,4 +122,45 @@ public class Sheet1Fields implements Serializable {
     public void setClassLevel(String s) {
         classLevel = s;
     }
+    /** Returns character's background */
+    public String getBackground() { return background; }
+    /** Sets character's background */
+    public void setBackground(String s) {
+        background = s;
+    }
+    /** Returns player name*/
+    public String getpName() {
+        return pName;
+    }
+    /** Sets player name*/
+    public void setpName(String s) {
+        pName = s;
+    }
+    /** Returns character name*/
+    public String getcName() {
+        return cName;
+    }
+    /** Sets character name */
+    public void setcName(String s) {
+        pName = s;
+    }
+    /** Returns character race */
+    public Constants.Races getRace() {
+        return race;
+    }
+    /** Sets character race */
+    public void setRace(Constants.Races r) {
+        race = r;
+    }
+    /** Returns character alignment */
+    public Constants.Alignment getAlignment() {
+        return alignment;
+    }
+    /** Sets character alignment */
+    public void setAlignment(Constants.Alignment a) {
+        alignment = a;
+    }
+
+
+
 }

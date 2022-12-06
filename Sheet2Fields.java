@@ -13,4 +13,17 @@ public class Sheet2Fields implements Serializable {
     private String eyes;
     private String skin;
     private String hair;
+
+    public Sheet2Fields() {
+        allies = "";
+        additionalFeatures = "";
+        backstory = "";
+        treasure = "";
+        age = 0;
+        height = 0;
+        weight = 0;
+        eyes = "";
+        skin = "";
+        hair = "";
+    }
 }

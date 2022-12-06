@@ -11,6 +11,7 @@ public class Constants {
         Bullywug,
         Centaur,
         Changeling,
+        DEFAULT,
         Dhampir,
         Dragonborn,
         ChromaticDragonborn,
