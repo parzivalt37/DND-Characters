@@ -188,4 +188,12 @@ public class Constants {
         Wisdom,
         Charisma
     }
+
+    public enum CurrencyType {
+        Copper,
+        Silver,
+        Electrum,
+        Gold,
+        Platinum
+    }
 }

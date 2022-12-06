@@ -28,7 +28,7 @@ public class Sheet1Fields implements Serializable {
     /** ArrayList of the 6 attributes of a D&D character
      * Order: [strength, dexterity, constitution, intelligence, wisdom, charisma]
      */
-    private ArrayList<Constants.Ability> attributes;
+    private ArrayList<Constants.Ability> abilities;
     /** ArrayList of modifiers for the 6 attributes
      * Order: [strength, dexterity, constitution, intelligence, wisdom, charisma[
      */
@@ -48,15 +48,20 @@ public class Sheet1Fields implements Serializable {
      * stealth, survival */
     private ArrayList<Skill> skills;
 
+    /** Boolean of whether or not the character has inspiration */
     private boolean inspiration;
+    /** Integer representing the proficiency bonus modifier*/
     private int proficiencybonus;
+    /** Integer representing the armor class (target roll for an attack) */
     private int armorclass;
-    //initiative
+    /** Integer representing a character's initiative */
+    private int initiative;
+    /** Integer representing a character's speed */
     private int speed;
 
     private ArrayList hp;
     private ArrayList<Attack> attacks;
-    private ArrayList equipment;
+    private ArrayList<Currency> currency;
 
     private String personalityTraits;
     private String ideals;
@@ -84,4 +89,51 @@ public class Sheet1Fields implements Serializable {
      * @param a Ability enum value of which ability is being assigned
      * @param val value of ability */
     private record Ability(Constants.Ability a, int val) implements Serializable {}
+    /** Record for Currency
+     * @param type type of currency
+     * @param val quantity of currency */
+    private record Currency(Constants.CurrencyType type, int val) implements Serializable {}
+
+
+    /*
+    * CONSTRUCTOR
+    * */
+    public Sheet1Fields() {
+        classLevel = "";
+        background = "";
+        pName = "";
+        cName = "";
+        race = "";
+        alignment = Constants.Alignment.TrueNeutral;
+        abilities = new ArrayList<>();
+        modifiers = new ArrayList<>();
+        savingThrows = new ArrayList<>();
+        skills = new ArrayList<>();
+        inspiration = false;
+        proficiencybonus = 0;
+        armorclass = 0;
+        initiative = 0;
+        speed = 0;
+        hp = new ArrayList<>();
+        attacks = new ArrayList<>();
+        currency = new ArrayList<>();
+        personalityTraits = "";
+        ideals = "";
+        bonds = "";
+        flaws = "";
+        features = "";
+        otherProficiencies = "";
+    }
+
+    /*
+    * METHODS
+    */
+    /** Returns the class & level string */
+    public String getClassLevel() {
+        return classLevel;
+    }
+    /** Sets class & level string to input */
+    public void setClassLevel(String s) {
+        classLevel = s;
+    }
 }
