@@ -8,10 +8,10 @@ public class Skill implements Serializable {
     /** Type of skill */
     private Constants.Skills skill;
     /** Value of skill */
-    private int skillValue;
+    private String skillValue;
 
     /** Constructor, called in Sheet1Fields*/
-    public Skill(Constants.Skills s, int sV) {
+    public Skill(Constants.Skills s, String sV) {
         skill = s;
         skillValue = sV;
     }
@@ -24,7 +24,7 @@ public class Skill implements Serializable {
         return skill;
     }
     /** Returns skill value */
-    public int getSkillValue() {
+    public String getSkillValue() {
         return skillValue;
     }
     /** Sets skill type */
@@ -32,7 +32,7 @@ public class Skill implements Serializable {
         this.skill = skill;
     }
     /** Sets skill value*/
-    public void setSkillValue(int skillValue) {
+    public void setSkillValue(String skillValue) {
         this.skillValue = skillValue;
     }
 }

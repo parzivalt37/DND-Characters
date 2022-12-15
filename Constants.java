@@ -1,6 +1,15 @@
 package com.dndcharacters.s1project;
 
+import java.awt.*;
+
 public class Constants {
+    /** Font object for labels */
+    public static Font labels;
+    /** Font object for buttons */
+    public static Font buttons;
+    /** Font for save button*/
+    public static Font saveFont;
+
     public enum Races {
         Aarakocra,
         Aasimar,

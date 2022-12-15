@@ -9,14 +9,14 @@ public class Ability implements Serializable {
     /** Ability */
     private Constants.Ability ability;
     /** Value of ability */
-    private int abilityValue;
+    private String abilityValue;
     /** Value of modifier */
-    private int modifierValue;
+    private String modifierValue;
     /** Value of saving throw*/
-    private int savingThrowValue;
+    private String savingThrowValue;
 
     /** Constructor, called in Sheet1Fields*/
-    public Ability(Constants.Ability a, int val, int modifierVal, int savingThrow) {
+    public Ability(Constants.Ability a, String val, String modifierVal, String savingThrow) {
         ability = a;
         abilityValue = val;
         modifierValue = val;
@@ -35,27 +35,27 @@ public class Ability implements Serializable {
         ability = a;
     }
     /** Returns ability value*/
-    public int getAbilityValue() {
+    public String getAbilityValue() {
         return abilityValue;
     }
     /** Sets ability value*/
-    public void setAbilityValue(int aV) {
+    public void setAbilityValue(String aV) {
         abilityValue = aV;
     }
     /** Returns modifier value */
-    public int getModifierValue() {
+    public String getModifierValue() {
         return modifierValue;
     }
     /** Sets modifier value */
-    public void setModifierValue(int mV) {
+    public void setModifierValue(String mV) {
         modifierValue = mV;
     }
     /** Returns saving throw value */
-    public int getSavingThrowValue() {
+    public String getSavingThrowValue() {
         return savingThrowValue;
     }
     /** Sets saving throw value */
-    public void setSavingThrowValue(int sTV) {
+    public void setSavingThrowValue(String sTV) {
         savingThrowValue = sTV;
     }
 

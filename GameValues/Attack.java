@@ -9,12 +9,12 @@ public class Attack implements Serializable {
     /** Name of attack*/
     private String attackName;
     /** Attack bonus */
-    private int atkBonus;
+    private String atkBonus;
     /** Damage Type */
     private Constants.DamageTypes damageType;
 
     /** Constructor, called in Sheet1Fields */
-    public Attack(String name, int attack, Constants.DamageTypes dT) {
+    public Attack(String name, String attack, Constants.DamageTypes dT) {
         attackName = name;
         atkBonus = attack;
         damageType = dT;
@@ -28,7 +28,7 @@ public class Attack implements Serializable {
         return attackName;
     }
     /** Returns attack bonus */
-    public int getAtkBonus() {
+    public String getAtkBonus() {
         return atkBonus;
     }
     /** Returns damage types */
@@ -40,7 +40,7 @@ public class Attack implements Serializable {
         this.attackName = attackName;
     }
     /** Sets attack bonus */
-    public void setAtkBonus(int atkBonus) {
+    public void setAtkBonus(String atkBonus) {
         this.atkBonus = atkBonus;
     }
     /** Sets type of damage*/

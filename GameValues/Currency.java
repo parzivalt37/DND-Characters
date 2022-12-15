@@ -7,12 +7,12 @@ import com.dndcharacters.s1project.Constants;
 public class Currency implements Serializable {
 
     /** Value of currency */
-    private int value;
+    private String value;
     /** Type of currency (gold, platinum, etc.) */
     private Constants.CurrencyType currencyType;
 
     /** Constructor, called in Sheet1Fields*/
-    public Currency(Constants.CurrencyType type, int v) {
+    public Currency(Constants.CurrencyType type, String v) {
         currencyType = type;
         value = v;
     }
@@ -21,7 +21,7 @@ public class Currency implements Serializable {
      * METHODS
      */
     /** Returns value of currency */
-    public int getValue() {
+    public String getValue() {
         return value;
     }
     /** Returns type of currency */
@@ -29,7 +29,7 @@ public class Currency implements Serializable {
         return currencyType;
     }
     /** Sets value of currency */
-    public void setValue(int value) {
+    public void setValue(String value) {
         this.value = value;
     }
     /** Sets type of currency */

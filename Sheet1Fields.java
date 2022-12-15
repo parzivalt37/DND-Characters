@@ -2,7 +2,7 @@ package com.dndcharacters.s1project;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.EnumSet;
+
 import com.dndcharacters.s1project.GameValues.*;
 
 /**
@@ -14,10 +14,11 @@ import com.dndcharacters.s1project.GameValues.*;
 public class Sheet1Fields implements Serializable {
 
     //basic character information (header of page)
-    /** Class & level field*/
-    private String classLevel;
-    /** Character background field*/
-    private String background;
+
+    private Constants.Classes classes;
+    /** Level field*/
+    private String level;
+
     /** Player name field*/
     private String pName;
     /** Character name field*/
@@ -32,7 +33,7 @@ public class Sheet1Fields implements Serializable {
      * Order: [strength, dexterity, constitution, intelligence, wisdom, charisma]
      * Also contains values for modifiers and saving throws
      */
-    private ArrayList<Ability> abilities;
+    public ArrayList<Ability> abilities;
 
     //Acrobatics, animalhandling, arcana, athletics, deception, history,
     //insight, intimidation, investigation, medicine, nature, perception,
@@ -43,91 +44,66 @@ public class Sheet1Fields implements Serializable {
      * history, insight, intimidation, investigation, medicine, nature,
      * perception, performance, persuasion, religion, sleight of hand,
      * stealth, survival */
-    private ArrayList<Skill> skills;
+    public ArrayList<Skill> skills;
+
 
     /** Boolean of whether or not the character has inspiration */
     private boolean inspiration;
     /** Integer representing the proficiency bonus modifier*/
-    private int proficiencybonus;
+    private String proficiencybonus;
+    /** Integer representing the difficulty class*/
+    private String difficultyclass;
     /** Integer representing the armor class (target roll for an attack) */
-    private int armorclass;
+    private String armorclass;
     /** Integer representing a character's initiative */
-    private int initiative;
+    private String initiative;
     /** Integer representing a character's speed */
-    private int speed;
+    private String speed;
 
-    private ArrayList hp;
-    private ArrayList<Attack> attacks;
-    private ArrayList<Currency> currency;
-
-    private String personalityTraits;
-    private String ideals;
-    private String bonds;
-    private String flaws;
-    private String features;
-    //passive wisdom
-    private String otherProficiencies;
-    //equipment
+    //index 0 is integer for current hit points
+    //index 1 is integer for maximum hit points
+    //index 2 is integer for temporary hit points
+    public ArrayList<String> hp;
+    public ArrayList<Attack> attacks;
+    public ArrayList<Currency> currency;
+    private String passiveWisdom; //supposed to be an int, but JTextFields aren't typesafe
 
 
     /*
-    * CONSTRUCTOR
+    * CONSTRUCTOR, called in sheet
     * */
     public Sheet1Fields() {
-        classLevel = "";
-        background = "";
+        level = "";
         pName = "";
         cName = "";
         race = Constants.Races.DEFAULT;
         alignment = Constants.Alignment.TrueNeutral;
 
+
         //instantiation and assignment of abilities arraylist
         abilities = new ArrayList<>();
-        EnumSet.allOf(Constants.Ability.class).forEach(a -> abilities.add(new Ability(a, 0, 0, 0)));
         //instantiation and assignment of skills arraylist
         skills = new ArrayList<>();
-        EnumSet.allOf(Constants.Skills.class).forEach(s -> skills.add(new Skill(s, 0)));
         //instantiation of attacks arraylist: this one is not assigned initial values because attacks are based on user
         //preference and not a predefined list
         attacks = new ArrayList<>();
         //instantiation and assignment of currency arraylist
         currency = new ArrayList<>();
-        EnumSet.allOf(Constants.CurrencyType.class).forEach(c -> currency.add(new Currency(c, 0)));
-
 
         inspiration = false;
-        proficiencybonus = 0;
-        armorclass = 0;
-        initiative = 0;
-        speed = 0;
+        proficiencybonus = "";
+        armorclass = "";
+        difficultyclass = "";
+        initiative = "";
+        speed = "";
         hp = new ArrayList<>();
         attacks = new ArrayList<>();
         currency = new ArrayList<>();
-        personalityTraits = "";
-        ideals = "";
-        bonds = "";
-        flaws = "";
-        features = "";
-        otherProficiencies = "";
     }
 
     /*
     * METHODS
     */
-    /** Returns the class & level string */
-    public String getClassLevel() {
-        return classLevel;
-    }
-    /** Sets class & level string to input */
-    public void setClassLevel(String s) {
-        classLevel = s;
-    }
-    /** Returns character's background */
-    public String getBackground() { return background; }
-    /** Sets character's background */
-    public void setBackground(String s) {
-        background = s;
-    }
     /** Returns player name*/
     public String getpName() {
         return pName;
@@ -161,6 +137,65 @@ public class Sheet1Fields implements Serializable {
         alignment = a;
     }
 
+    public String getLevel() { return level; }
 
+    public void setLevel(String level) { this.level = level; }
 
+    public boolean isInspiration() { return inspiration; }
+
+    public void setInspiration(boolean ins) { inspiration = ins; }
+
+    public String getProficiencybonus() { return proficiencybonus; }
+
+    public void setProficiencybonus(String proficiencybonus) {
+        this.proficiencybonus = proficiencybonus;
+    }
+
+    public String getDifficultyclass() {
+        return difficultyclass;
+    }
+
+    public void setDifficultyclass(String difficultyclass) {
+        this.difficultyclass = difficultyclass;
+    }
+
+    public String getArmorclass() {
+        return armorclass;
+    }
+
+    public void setArmorclass(String armorclass) {
+        this.armorclass = armorclass;
+    }
+
+    public String getInitiative() {
+        return initiative;
+    }
+
+    public void setInitiative(String initiative) {
+        this.initiative = initiative;
+    }
+
+    public String getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(String speed) {
+        this.speed = speed;
+    }
+
+    public Constants.Classes getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Constants.Classes classes) {
+        this.classes = classes;
+    }
+
+    public String getPassiveWisdom() {
+        return passiveWisdom;
+    }
+
+    public void setPassiveWisdom(String passiveWisdom) {
+        this.passiveWisdom = passiveWisdom;
+    }
 }
