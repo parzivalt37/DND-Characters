@@ -59,6 +59,8 @@ public class Sheet1Fields implements Serializable {
     private String initiative;
     /** Integer representing a character's speed */
     private String speed;
+    /** String for experience points */
+    private String experiencePoints;
 
     //index 0 is integer for current hit points
     //index 1 is integer for maximum hit points
@@ -118,7 +120,7 @@ public class Sheet1Fields implements Serializable {
     }
     /** Sets character name */
     public void setcName(String s) {
-        pName = s;
+        cName = s;
     }
     /** Returns character race */
     public Constants.Races getRace() {
@@ -195,7 +197,15 @@ public class Sheet1Fields implements Serializable {
         return passiveWisdom;
     }
 
-    public void setPassiveWisdom(String passiveWisdom) {
-        this.passiveWisdom = passiveWisdom;
+    public void setPassiveWisdom(String pW) {
+        passiveWisdom = pW;
+    }
+
+    public String getExperiencePoints() {
+        return experiencePoints;
+    }
+
+    public void setExperiencePoints(String exP) {
+        experiencePoints = exP;
     }
 }

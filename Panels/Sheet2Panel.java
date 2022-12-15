@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -17,7 +18,7 @@ public class Sheet2Panel extends JPanel {
 
     //JLabels
     public static JLabel alliesLabel;
-    public static JLabel additionalFeaturesLabel;
+    public static JLabel featuresLabel;
     public static JLabel backstoryLabel;
     public static JLabel treasureLabel;
     public static JLabel ageLabel;
@@ -30,26 +31,27 @@ public class Sheet2Panel extends JPanel {
     public static JLabel idealsLabel;
     public static JLabel bondsLabel;
     public static JLabel flawsLabel;
-    public static JLabel featuresLabel;
+    public static JLabel additionalFeaturesLabel;
     public static JLabel otherProficienciesLabel;
+    public static JLabel languagesLabel;
 
     //JTextFields
     public static JTextArea alliesArea;
+    public static JTextArea featuresArea;
+    public static JTextArea backstoryArea;
+    public static JTextArea treasureArea;
+    public static JTextField ageField;
+    public static JTextField heightField;
+    public static JTextField weightField;
+    public static JTextField eyesField;
+    public static JTextField skinField;
+    public static JTextField hairField;
+    public static JTextArea personalityTraitsArea;
+    public static JTextArea idealsArea;
+    public static JTextArea bondsArea;
+    public static JTextArea flawsArea;
     public static JTextArea additionalFeaturesArea;
-    public static JTextArea backstoryField;
-    public static JTextArea treasureField;
-    public static JTextArea ageField;
-    public static JTextArea heightField;
-    public static JTextArea weightField;
-    public static JTextArea eyesField;
-    public static JTextArea skinField;
-    public static JTextArea hairField;
-    public static JTextArea personalityTraitsField;
-    public static JTextArea idealsField;
-    public static JTextArea bondsField;
-    public static JTextArea flawsField;
-    public static JTextArea featuresField;
-    public static JTextArea otherProficienciesField;
+    public static JTextArea otherProficienciesArea;
 
     public static JButton previousPage;
     public static JButton saveButton;
@@ -59,11 +61,11 @@ public class Sheet2Panel extends JPanel {
         setLayout(null);
 
         initializeLabels();
-        initializeTextAreas();
+        initializeTextFieldsAreas();
         initializeButtons();
 
         add(alliesLabel);
-        add(additionalFeaturesLabel);
+        add(featuresLabel);
         add(backstoryLabel);
         //
         add(treasureLabel);
@@ -77,12 +79,27 @@ public class Sheet2Panel extends JPanel {
         add(idealsLabel);
         add(bondsLabel);
         add(flawsLabel);
-
-        add(featuresLabel);
+        add(additionalFeaturesLabel);
         add(otherProficienciesLabel);
+        add(languagesLabel);
+
 
         add(alliesArea);
+        add(featuresArea);
+        add(backstoryArea);
+        add(treasureArea);
+        add(ageField);
+        add(heightField);
+        add(weightField);
+        add(eyesField);
+        add(skinField);
+        add(hairField);
+        add(personalityTraitsArea);
+        add(idealsArea);
+        add(bondsArea);
+        add(flawsArea);
         add(additionalFeaturesArea);
+        add(otherProficienciesArea);
 
 
         add(saveButton);
@@ -109,10 +126,10 @@ public class Sheet2Panel extends JPanel {
         alliesLabel.setForeground(Color.WHITE);
 
         //additional features label
-        additionalFeaturesLabel = new JLabel("Additional features:");
-        additionalFeaturesLabel.setFont(Constants.labels);
-        additionalFeaturesLabel.setBounds(0, 300, 200, 50);
-        additionalFeaturesLabel.setForeground(Color.WHITE);
+        featuresLabel = new JLabel("Features & traits:");
+        featuresLabel.setFont(Constants.labels);
+        featuresLabel.setBounds(0, 300, 200, 50);
+        featuresLabel.setForeground(Color.WHITE);
 
         //backstory label
         backstoryLabel = new JLabel("Backstory:");
@@ -187,19 +204,25 @@ public class Sheet2Panel extends JPanel {
         flawsLabel.setForeground(Color.WHITE);
 
         //Features label
-        featuresLabel = new JLabel("Features & traits:");
-        featuresLabel.setFont(Constants.labels);
-        featuresLabel.setBounds(1300, 100, 200, 50);
-        featuresLabel.setForeground(Color.WHITE);
+        additionalFeaturesLabel = new JLabel("Additional features:");
+        additionalFeaturesLabel.setFont(Constants.labels);
+        additionalFeaturesLabel.setBounds(1400, 100, 200, 50);
+        additionalFeaturesLabel.setForeground(Color.WHITE);
 
         //Other proficiences label
-        otherProficienciesLabel = new JLabel("Other proficiencies & languages:");
+        otherProficienciesLabel = new JLabel("Other proficiencies");
         otherProficienciesLabel.setFont(Constants.labels);
-        otherProficienciesLabel.setBounds(1300, 300, 300, 50);
+        otherProficienciesLabel.setBounds(1400, 300, 300, 50);
         otherProficienciesLabel.setForeground(Color.WHITE);
+
+        //& languages label
+        languagesLabel = new JLabel("& languages:");
+        languagesLabel.setFont(Constants.labels);
+        languagesLabel.setBounds(1400, 330, 200, 50);
+        languagesLabel.setForeground(Color.WHITE);
     }
 
-    private void initializeTextAreas() {
+    private void initializeTextFieldsAreas() {
         //allies text area
         alliesArea = new JTextArea();
         alliesArea.setBounds(200, 100, 250, 175);
@@ -207,10 +230,88 @@ public class Sheet2Panel extends JPanel {
         alliesArea.setLineWrap(true);
 
         //additional features text area
+        featuresArea = new JTextArea();
+        featuresArea.setBounds(200, 300, 250, 175);
+        featuresArea.setFont(Constants.labels);
+        featuresArea.setLineWrap(true);
+
+        //backstory text area
+        backstoryArea = new JTextArea();
+        backstoryArea.setBounds(200, 500, 250, 175);
+        backstoryArea.setFont(Constants.labels);
+        backstoryArea.setLineWrap(true);
+
+        //treasure area
+        treasureArea = new JTextArea();
+        treasureArea.setBounds(200, 700, 250, 175);
+        treasureArea.setFont(Constants.labels);
+        treasureArea.setLineWrap(true);
+
+        //age field
+        ageField = new JTextField();
+        ageField.setBounds(200, 900, 100, 40);
+        ageField.setFont(Constants.labels);
+
+        //height field
+        heightField = new JTextField();
+        heightField.setBounds(200, 950, 100, 40);
+        heightField.setFont(Constants.labels);
+
+        //weight field
+        weightField = new JTextField();
+        weightField.setBounds(200, 1000, 100, 40);
+        weightField.setFont(Constants.labels);
+
+        //eyes field
+        eyesField = new JTextField();
+        eyesField.setBounds(1000, 100, 100, 40);
+        eyesField.setFont(Constants.labels);
+
+        //skin field
+        skinField = new JTextField();
+        skinField.setBounds(1000, 150, 100, 40);
+        skinField.setFont(Constants.labels);
+
+        //hair field
+        hairField = new JTextField();
+        hairField.setBounds(1000, 200, 100, 40);
+        hairField.setFont(Constants.labels);
+
+        //personality traits area
+        personalityTraitsArea = new JTextArea();
+        personalityTraitsArea.setBounds(1000, 250, 250, 175);
+        personalityTraitsArea.setFont(Constants.labels);
+        personalityTraitsArea.setLineWrap(true);
+
+        //ideals area
+        idealsArea = new JTextArea();
+        idealsArea.setBounds(1000, 450, 250, 175);
+        idealsArea.setFont(Constants.labels);
+        idealsArea.setLineWrap(true);
+
+        //bonds area
+        bondsArea = new JTextArea();
+        bondsArea.setBounds(1000, 650, 250, 175);
+        bondsArea.setFont(Constants.labels);
+        bondsArea.setLineWrap(true);
+
+        //flaws area
+        flawsArea = new JTextArea();
+        flawsArea.setBounds(1000, 850, 250, 175);
+        flawsArea.setFont(Constants.labels);
+        flawsArea.setLineWrap(true);
+
+        //Additional features area
         additionalFeaturesArea = new JTextArea();
-        additionalFeaturesArea.setBounds(200, 300, 250, 175);
+        additionalFeaturesArea.setBounds(1600, 100, 250, 175);
         additionalFeaturesArea.setFont(Constants.labels);
         additionalFeaturesArea.setLineWrap(true);
+
+        //other proficiencies area
+        otherProficienciesArea = new JTextArea();
+        otherProficienciesArea.setBounds(1600, 300, 250, 175);
+        otherProficienciesArea.setFont(Constants.labels);
+        otherProficienciesArea.setLineWrap(true);
     }
 
     private void initializeButtons() {
@@ -231,13 +332,50 @@ public class Sheet2Panel extends JPanel {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: serialize object
+                MainPanel.s1p.save();
+                save();
+                try { MainPanel.serialize();}
+                catch (Exception ex) { ex.printStackTrace(); }
                 System.exit(0);
             }
         });
     }
 
-    private void save() {
+    public void save() {
         MainPanel.sheet.s2.setAllies(alliesArea.getText());
+        MainPanel.sheet.s2.setFeatures(featuresArea.getText());
+        MainPanel.sheet.s2.setBackstory(backstoryArea.getText());
+        MainPanel.sheet.s2.setTreasure(treasureArea.getText());
+        MainPanel.sheet.s2.setAge(ageField.getText());
+        MainPanel.sheet.s2.setHeight(heightField.getText());
+        MainPanel.sheet.s2.setWeight(weightField.getText());
+        MainPanel.sheet.s2.setEyes(eyesField.getText());
+        MainPanel.sheet.s2.setSkin(skinField.getText());
+        MainPanel.sheet.s2.setHair(hairField.getText());
+        MainPanel.sheet.s2.setPersonalityTraits(personalityTraitsArea.getText());
+        MainPanel.sheet.s2.setIdeals(idealsArea.getText());
+        MainPanel.sheet.s2.setBonds(bondsArea.getText());
+        MainPanel.sheet.s2.setFlaws(flawsArea.getText());
+        MainPanel.sheet.s2.setAdditionalFeatures(additionalFeaturesArea.getText());
+        MainPanel.sheet.s2.setOtherProficiencies(otherProficienciesArea.getText());
+    }
+
+    public void load() {
+        alliesArea.setText(MainPanel.sheet.s2.getAllies());
+        featuresArea.setText(MainPanel.sheet.s2.getFeatures());
+        backstoryArea.setText(MainPanel.sheet.s2.getBackstory());
+        treasureArea.setText(MainPanel.sheet.s2.getTreasure());
+        ageField.setText(MainPanel.sheet.s2.getAge());
+        heightField.setText(MainPanel.sheet.s2.getHeight());
+        weightField.setText(MainPanel.sheet.s2.getWeight());
+        eyesField.setText(MainPanel.sheet.s2.getEyes());
+        skinField.setText(MainPanel.sheet.s2.getSkin());
+        hairField.setText(MainPanel.sheet.s2.getHair());
+        personalityTraitsArea.setText(MainPanel.sheet.s2.getPersonalityTraits());
+        idealsArea.setText(MainPanel.sheet.s2.getIdeals());
+        bondsArea.setText(MainPanel.sheet.s2.getBonds());
+        flawsArea.setText(MainPanel.sheet.s2.getFlaws());
+        additionalFeaturesArea.setText(MainPanel.sheet.s2.getAdditionalFeatures());
+        otherProficienciesArea.setText(MainPanel.sheet.s2.getOtherProficiencies());
     }
 }

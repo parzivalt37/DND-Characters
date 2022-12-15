@@ -5,11 +5,9 @@ import java.io.Serializable;
 public class Sheet implements Serializable {
     public Sheet1Fields s1;
     public Sheet2Fields s2;
-    public Sheet3Fields s3;
 
     public Sheet() {
         s1 = new Sheet1Fields();
         s2 = new Sheet2Fields();
-        s3 = new Sheet3Fields();
     }
 }

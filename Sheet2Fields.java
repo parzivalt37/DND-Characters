@@ -7,7 +7,7 @@ public class Sheet2Fields implements Serializable {
     /** String listing the character's allies */
     private String allies;
     /** String listing the character's additional features */
-    private String additionalFeatures;
+    private String features;
     /** String containing the character's backstory */
     private String backstory;
     /** String treasure*/
@@ -32,14 +32,14 @@ public class Sheet2Fields implements Serializable {
     private String ideals;
     private String bonds;
     private String flaws;
-    private String features;
+    private String additionalFeatures;
     private String otherProficiencies;
     //private String equipment; TODO: implement equipment
 
     //Constructor, called in sheet
     public Sheet2Fields() {
         allies = "";
-        additionalFeatures = "";
+        features = "";
         backstory = "";
         background = "";
         treasure = "";
@@ -54,7 +54,7 @@ public class Sheet2Fields implements Serializable {
         ideals = "";
         bonds = "";
         flaws = "";
-        features = "";
+        additionalFeatures = "";
         otherProficiencies = "";
     }
 
@@ -70,12 +70,12 @@ public class Sheet2Fields implements Serializable {
         this.allies = allies;
     }
     /** Returns the description of the character's additional features */
-    public String getAdditionalFeatures() {
-        return additionalFeatures;
+    public String getFeatures() {
+        return features;
     }
     /** Sets the description of the character's additional features */
-    public void setAdditionalFeatures(String additionalFeatures) {
-        this.additionalFeatures = additionalFeatures;
+    public void setFeatures(String features) {
+        this.features = features;
     }
     /** Returns the description of the character's backstory */
     public String getBackstory() {
@@ -105,46 +105,94 @@ public class Sheet2Fields implements Serializable {
     public String getHeight() {
         return height;
     }
-    /** Sets the character's height*/
+
     public void setHeight(String height) {
         this.height = height;
     }
-    /** Returns the character's weight */
+
     public String getWeight() {
         return weight;
     }
-    /** Sets the character's weight */
+
     public void setWeight(String weight) {
         this.weight = weight;
     }
-    /** Returns the description of the character's eyes */
+
     public String getEyes() {
         return eyes;
     }
-    /** Sets the description of the character's eyes */
+
     public void setEyes(String eyes) {
         this.eyes = eyes;
     }
-    /** Returns the description of the character's skin */
+
     public String getSkin() {
         return skin;
     }
-    /** Sets the description of the character's skin */
+
     public void setSkin(String skin) {
         this.skin = skin;
     }
-    /** Returns the description of the character's hair */
+
     public String getHair() {
         return hair;
     }
-    /** Sets the description of the character's hair */
+
     public void setHair(String hair) {
         this.hair = hair;
     }
-    /** Returns character's background */
+
     public String getBackground() { return background; }
-    /** Sets character's background */
+
     public void setBackground(String s) {
         background = s;
+    }
+
+    public String getPersonalityTraits() {
+        return personalityTraits;
+    }
+
+    public void setPersonalityTraits(String personalityTraits) {
+        this.personalityTraits = personalityTraits;
+    }
+
+    public String getIdeals() {
+        return ideals;
+    }
+
+    public void setIdeals(String ideals) {
+        this.ideals = ideals;
+    }
+
+    public String getBonds() {
+        return bonds;
+    }
+
+    public void setBonds(String bonds) {
+        this.bonds = bonds;
+    }
+
+    public String getFlaws() {
+        return flaws;
+    }
+
+    public void setFlaws(String flaws) {
+        this.flaws = flaws;
+    }
+
+    public String getAdditionalFeatures() {
+        return additionalFeatures;
+    }
+
+    public void setAdditionalFeatures(String additionalFeatures) {
+        this.additionalFeatures = additionalFeatures;
+    }
+
+    public String getOtherProficiencies() {
+        return otherProficiencies;
+    }
+
+    public void setOtherProficiencies(String otherProficiencies) {
+        this.otherProficiencies = otherProficiencies;
     }
 }

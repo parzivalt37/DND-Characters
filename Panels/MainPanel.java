@@ -14,21 +14,33 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /** JPanel class: represents the first panel to be displayed on program startup */
 public class MainPanel extends JPanel {
-    /** JFrame object */
+    /**
+     * JFrame object
+     */
     public static JFrame frame = new JFrame("D&D Character Editor");
-    /** Sheet object */
+    /**
+     * Sheet object
+     */
     public static Sheet sheet;
-    /** Background image */
+    /**
+     * Background image
+     */
     public static BufferedImage backgroundImage;
     public static BufferedImage icon;
 
     public static Sheet1Panel s1p = null;
     public static Sheet2Panel s2p = null;
+
+    private static final File f = new File("C:\\Users\\parzival3719\\Desktop\\Code\\Java\\S1Project\\src\\main\\java\\com\\dndcharacters\\s1project\\Panels\\save.dat");
 
     //Constructor, called in main()
     public MainPanel() throws IOException {
@@ -69,27 +81,32 @@ public class MainPanel extends JPanel {
                 sheet = new Sheet();
                 setVisible(false);
                 s1p = new Sheet1Panel();
+                s2p = new Sheet2Panel();
+                s2p.setVisible(false);
             }
         });
         loadFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: deserialize object from file
-                //TODO: setVisible(false);
-                //TODO: insert a call to the editor one Panel
-            }
-        });
-        Sheet1Panel.saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO: serialize object to file
-                //TODO: exit the program
+                try {
+                    deserialize();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                setVisible(false);
+                s1p = new Sheet1Panel();
+                s1p.load();
+                s2p = new Sheet2Panel();
+                s2p.setVisible(false);
+                s2p.load();
             }
         });
 
         //final additions
         add(newFile);
         add(loadFile);
+
+        //frame setup
         frame.add(this);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
@@ -101,5 +118,34 @@ public class MainPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(backgroundImage, 0, 0, this);
+    }
+
+    public static void serialize() throws IOException {
+        try {
+            FileOutputStream fileOut = new FileOutputStream(f);
+            ObjectOutputStream sheetOut = new ObjectOutputStream(fileOut);
+
+            sheetOut.writeObject(sheet);
+
+            sheetOut.close();
+            fileOut.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    private static void deserialize() throws IOException, ClassNotFoundException {
+        try {
+            FileInputStream fileIn = new FileInputStream(f);
+            ObjectInputStream sheetIn = new ObjectInputStream(fileIn);
+
+            MainPanel.sheet = (Sheet) sheetIn.readObject();
+
+            sheetIn.close();
+            fileIn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
