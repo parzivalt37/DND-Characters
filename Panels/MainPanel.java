@@ -43,7 +43,7 @@ public class MainPanel extends JPanel {
     private static JButton loadFile;
 
     //Serialization/deserialization file
-    private static final File f = new File("C:\\Users\\parzival3719\\Desktop\\Code\\Java\\S1Project\\src\\main\\java\\com\\dndcharacters\\s1project\\Panels\\save.dat");
+    private static final File f = new File("save.dat");
 
     /** Constructor, called in main: sets up default options for the frame and the panels */
     public MainPanel() throws IOException {
@@ -51,7 +51,7 @@ public class MainPanel extends JPanel {
         frame.setSize(1920, 1080);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
-        icon = ImageIO.read(new File("C:\\Users\\parzival3719\\Desktop\\Code\\Java\\S1Project\\src\\main\\java\\com\\dndcharacters\\s1project\\Panels\\D&D Logo.png"));
+        icon = ImageIO.read(new File("./src/main/java/com/dndcharacters/s1project/Panels/Logo.png"));
         frame.setIconImage(icon);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
@@ -60,7 +60,7 @@ public class MainPanel extends JPanel {
         setLayout(null);
 
         //Initializes image from local disk
-        backgroundImage = ImageIO.read(new File("C:\\Users\\parzival3719\\Desktop\\Code\\Java\\S1Project\\src\\main\\java\\com\\dndcharacters\\s1project\\Panels\\Background.jpg"));
+        backgroundImage = ImageIO.read(new File("./src/main/java/com/dndcharacters/s1project/Panels/Background.jpg"));
 
         initializeButtons();
         addComponents();
