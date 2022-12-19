@@ -1,9 +1,9 @@
 package com.dndcharacters.s1project;
 
+import com.dndcharacters.s1project.GameValues.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import com.dndcharacters.s1project.GameValues.*;
 
 /**
  * Data class containing fields from the first page of the character editor

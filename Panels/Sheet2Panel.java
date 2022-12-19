@@ -1,10 +1,6 @@
 package com.dndcharacters.s1project.Panels;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import com.dndcharacters.s1project.Constants;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -12,7 +8,11 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import com.dndcharacters.s1project.Constants;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /** Sheet2Panel: extends JPanel and shows all labels, text fields, etc. on page 2
  * @author S. Mahon

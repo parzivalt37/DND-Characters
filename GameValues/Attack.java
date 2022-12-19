@@ -1,7 +1,7 @@
 package com.dndcharacters.s1project.GameValues;
 
-import java.io.Serializable;
 import com.dndcharacters.s1project.Constants;
+import java.io.Serializable;
 
 /** Class for attacks/spellcasting - types, values, atkbonuses */
 public class Attack implements Serializable {

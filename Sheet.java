@@ -2,7 +2,6 @@ package com.dndcharacters.s1project;
 
 import java.io.Serializable;
 
-
 /**Has Sheet1Fields and Sheet2Fields data classes as state variables: combines into one object that will be serialized/deserialized
  * @author S. Mahon
  * @version 12.15.2022

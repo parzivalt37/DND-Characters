@@ -3,13 +3,6 @@ package com.dndcharacters.s1project.Panels;
 import com.dndcharacters.s1project.*;
 import com.dndcharacters.s1project.GameValues.*;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -17,6 +10,13 @@ import java.awt.event.ActionListener;
 import java.awt.Graphics2D;
 
 import java.util.EnumSet;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 /** Sheet1Panel: extends JPanel and shows all labels, text fields, etc. on page 1
  * @author S. Mahon

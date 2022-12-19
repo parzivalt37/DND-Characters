@@ -1,7 +1,7 @@
 package com.dndcharacters.s1project.GameValues;
 
-import java.io.Serializable;
 import com.dndcharacters.s1project.Constants;
+import java.io.Serializable;
 
 /**
  * Class for Ability types - contains ability type, value, modifier, and saving throw

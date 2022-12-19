@@ -1,6 +1,6 @@
 package com.dndcharacters.s1project;
 
-import java.awt.*;
+import java.awt.Font;
 
 /** Class containing all fundamental constants of the program e.g. fonts, enums with set game types, etc. */
 public class Constants {

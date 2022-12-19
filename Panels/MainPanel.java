@@ -2,12 +2,6 @@ package com.dndcharacters.s1project.Panels;
 
 import com.dndcharacters.s1project.*;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.imageio.ImageIO;
-
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,6 +13,11 @@ import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.imageio.ImageIO;
 
 /**MainPanel: extends JPanel and shows the screen with the first 2 buttons; represents the first panel to be displayed on program startup
  * Also contains serialization and deserialization functions
