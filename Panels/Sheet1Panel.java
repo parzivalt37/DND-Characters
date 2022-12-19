@@ -18,72 +18,79 @@ import java.awt.Graphics2D;
 
 import java.util.EnumSet;
 
+/** Sheet1Panel: extends JPanel and shows all labels, text fields, etc. on page 1
+ * @author S. Mahon
+ * @version 12.19.2022
+ */
 public class Sheet1Panel extends JPanel {
 
-    //JButton
+    //JButtons
+    /** Button to navigate to the second page */
     private static JButton nextPage;
     /** Save button to be displayed on every panel */
     public static JButton saveButton = new JButton("Save and exit");
 
     //JLabels
-    public static JLabel playerLabel;
-    public static JLabel characterLabel;
-    public static JLabel raceLabel;
-    public static JLabel classLabel;
-    public static JLabel levelLabel;
-    public static JLabel alignmentLabel;
-    public static JLabel strengthLabel;
-    public static JLabel dexterityLabel;
-    public static JLabel constitutionLabel;
-    public static JLabel intelligenceLabel;
-    public static JLabel wisdomLabel;
-    public static JLabel charismaLabel;
-    public static JLabel abilityLabel;
-    public static JLabel modifierLabel;
-    public static JLabel savingThrowLabel;
-    public static JLabel inspirationLabel;
-    public static JLabel proficiencyLabel;
-    public static JLabel armorClassLabel;
-    public static JLabel difficultyClassLabel;
-    public static JLabel initiativeLabel;
-    public static JLabel speedLabel;
-    public static JLabel experienceLabel;
+    //General character information
+    private static JLabel playerLabel;
+    private static JLabel characterLabel;
+    private static JLabel raceLabel;
+    private static JLabel classLabel;
+    private static JLabel levelLabel;
+    private static JLabel alignmentLabel;
+    //Ability labels
+    private static JLabel strengthLabel;
+    private static JLabel dexterityLabel;
+    private static JLabel constitutionLabel;
+    private static JLabel intelligenceLabel;
+    private static JLabel wisdomLabel;
+    private static JLabel charismaLabel;
+    private static JLabel abilityLabel;
+    private static JLabel modifierLabel;
+    private static JLabel savingThrowLabel;
+    //Other character information
+    private static JLabel inspirationLabel;
+    private static JLabel proficiencyLabel;
+    private static JLabel armorClassLabel;
+    private static JLabel difficultyClassLabel;
+    private static JLabel initiativeLabel;
+    private static JLabel speedLabel;
+    private static JLabel experienceLabel;
+    private static JLabel passiveWisdomLabel;
     //Skill JLabels
-    public static JLabel acrobaticsLabel;
-    public static JLabel animalHandlingLabel;
-    public static JLabel arcanaLabel;
-    public static JLabel athleticsLabel;
-    public static JLabel historyLabel;
-    public static JLabel deceptionLabel;
-    public static JLabel insightLabel;
-    public static JLabel intimidationLabel;
-    public static JLabel investigationLabel;
-    public static JLabel medicineLabel;
-    public static JLabel natureLabel;
-    public static JLabel perceptionLabel;
-    public static JLabel performanceLabel;
-    public static JLabel persuasionLabel;
-    public static JLabel religionLabel;
-    public static JLabel sleightOfHandLabel;
-    public static JLabel stealthLabel;
-    public static JLabel survivalLabel;
+    private static JLabel acrobaticsLabel;
+    private static JLabel animalHandlingLabel;
+    private static JLabel arcanaLabel;
+    private static JLabel athleticsLabel;
+    private static JLabel historyLabel;
+    private static JLabel deceptionLabel;
+    private static JLabel insightLabel;
+    private static JLabel intimidationLabel;
+    private static JLabel investigationLabel;
+    private static JLabel medicineLabel;
+    private static JLabel natureLabel;
+    private static JLabel perceptionLabel;
+    private static JLabel performanceLabel;
+    private static JLabel persuasionLabel;
+    private static JLabel religionLabel;
+    private static JLabel sleightOfHandLabel;
+    private static JLabel stealthLabel;
+    private static JLabel survivalLabel;
     //attacks
-    public static JLabel attackLabel;
-    public static JLabel attackBonusLabel;
-    public static JLabel damageTypeLabel;
+    private static JLabel attackLabel;
+    private static JLabel attackBonusLabel;
+    private static JLabel damageTypeLabel;
     //hp
-    public static JLabel HPLabel;
-    public static JLabel tempHPLabel;
-    public static JLabel currentHPLabel;
+    private static JLabel HPLabel;
+    private static JLabel tempHPLabel;
+    private static JLabel currentHPLabel;
     //currency
-    public static JLabel currencyLabel;
-    public static JLabel copperLabel;
-    public static JLabel silverLabel;
-    public static JLabel electrumLabel;
-    public static JLabel goldLabel;
-    public static JLabel platinumLabel;
-    //other
-    public static JLabel passiveWisdomLabel;
+    private static JLabel currencyLabel;
+    private static JLabel copperLabel;
+    private static JLabel silverLabel;
+    private static JLabel electrumLabel;
+    private static JLabel goldLabel;
+    private static JLabel platinumLabel;
 
     //JComboBox
     public static JComboBox<Constants.Races> raceComboBox;
@@ -93,30 +100,34 @@ public class Sheet1Panel extends JPanel {
     public static JComboBox<Constants.DamageTypes> damageTypesComboBox2;
     public static JComboBox<Constants.DamageTypes> damageTypesComboBox3;
 
-    //JTextField
+    //JTextFields
+    //Genreal information
     public static JTextField pNameField;
     public static JTextField cNameField;
     public static JTextField levelField;
+    public static JTextField passiveWisdomField;
+    //Ability fields
     public static JTextField strengthField;
-    public static JTextField strengthMField;
     public static JTextField dexterityField;
-    public static JTextField dexterityMField;
     public static JTextField constitutionField;
-    public static JTextField constitutionMField;
     public static JTextField intelligenceField;
-    public static JTextField intelligenceMField;
     public static JTextField wisdomField;
-    public static JTextField wisdomMField;
     public static JTextField charismaField;
+    //Modifier fields
+    public static JTextField strengthMField;
+    public static JTextField dexterityMField;
+    public static JTextField constitutionMField;
+    public static JTextField intelligenceMField;
+    public static JTextField wisdomMField;
     public static JTextField charismaMField;
-    //saving throw fields
+    //Saving throw fields
     public static JTextField strengthSTField;
     public static JTextField dexteritySTField;
     public static JTextField constitutionSTField;
     public static JTextField intelligenceSTField;
     public static JTextField wisdomSTField;
     public static JTextField charismaSTField;
-
+    //Other character information
     public static JTextField proficiencyField;
     public static JTextField armorClassField;
     public static JTextField difficultyClassField;
@@ -142,166 +153,48 @@ public class Sheet1Panel extends JPanel {
     public static JTextField sleightOfHandField;
     public static JTextField stealthField;
     public static JTextField survivalField;
-    //attacks
+    //Attack fields
     public static JTextField attack1Field;
     public static JTextField attack2Field;
     public static JTextField attack3Field;
     public static JTextField attack1BonusField;
     public static JTextField attack2BonusField;
     public static JTextField attack3BonusField;
-    //hp
+    //HP fields
     public static JTextField HPField;
     public static JTextField tempHPField;
     public static JTextField currentHPField;
-    //currency
+    //Currency fields
     public static JTextField copperField;
     public static JTextField silverField;
     public static JTextField electrumField;
     public static JTextField goldField;
     public static JTextField platinumField;
-    //other
-    public static JTextField passiveWisdomField;
 
+    //JRadioButtons
+    //Other information
     public static JRadioButton inspirationRadioButton;
 
+    /** Constructor, called in MainPanel: sets up default options for the panel*/
     public Sheet1Panel() {
         //panel config
         setSize(1920, 1080);
         setLayout(null);
 
+        //calls component initialization methods
         initializeLabels();
         initializeComboBoxes();
         initializeTextFields();
         initializeRadioButtons();
         initializeButtons();
+        addComponents();
 
-        //additions to the panel
-        add(pNameField);
-        add(cNameField);
-        add(levelField);
-        add(playerLabel);
-        add(classLabel);
-        add(characterLabel);
-        add(alignmentLabel);
-        add(raceLabel);
-        add(alignmentComboBox);
-        add(raceComboBox);
-        add(classComboBox);
-        add(levelLabel);
-        add(savingThrowLabel);
-        add(strengthLabel);
-        add(dexterityLabel);
-        add(constitutionLabel);
-        add(wisdomLabel);
-        add(charismaLabel);
-        add(intelligenceLabel);
-        add(abilityLabel);
-        add(modifierLabel);
-        add(strengthField);
-        add(strengthMField);
-        add(strengthSTField);
-        add(dexterityField);
-        add(dexterityMField);
-        add(dexteritySTField);
-        add(constitutionField);
-        add(constitutionMField);
-        add(constitutionSTField);
-        add(intelligenceField);
-        add(intelligenceMField);
-        add(intelligenceSTField);
-        add(wisdomField);
-        add(wisdomMField);
-        add(wisdomSTField);
-        add(charismaField);
-        add(charismaMField);
-        add(charismaSTField);
-        add(inspirationLabel);
-        add(inspirationRadioButton);
-        add(proficiencyLabel);
-        add(proficiencyField);
-        add(armorClassField);
-        add(armorClassLabel);
-        add(difficultyClassField);
-        add(difficultyClassLabel);
-        add(speedLabel);
-        add(initiativeLabel);
-        add(speedField);
-        add(experienceLabel);
-        add(experienceField);
-        add(initiativeField);
-        add(acrobaticsLabel);
-        add(arcanaLabel);
-        add(animalHandlingLabel);
-        add(athleticsLabel);
-        add(deceptionLabel);
-        add(historyLabel);
-        add(insightLabel);
-        add(intimidationLabel);
-        add(investigationLabel);
-        add(medicineLabel);
-        add(natureLabel);
-        add(perceptionLabel);
-        add(performanceLabel);
-        add(persuasionLabel);
-        add(religionLabel);
-        add(sleightOfHandLabel);
-        add(stealthLabel);
-        add(survivalLabel);
-        add(acrobaticsField);
-        add(animalHandlingField);
-        add(arcanaField);
-        add(athleticsField);
-        add(historyField);
-        add(deceptionField);
-        add(insightField);
-        add(intimidationField);
-        add(investigationField);
-        add(medicineField);
-        add(natureField);
-        add(perceptionField);
-        add(performanceField);
-        add(persuasionField);
-        add(religionField);
-        add(sleightOfHandField);
-        add(stealthField);
-        add(survivalField);
-        add(attackBonusLabel);
-        add(attackLabel);
-        add(damageTypeLabel);
-        add(damageTypesComboBox1);
-        add(damageTypesComboBox2);
-        add(damageTypesComboBox3);
-        add(attack1Field);
-        add(attack1BonusField);
-        add(attack2Field);
-        add(attack2BonusField);
-        add(attack3Field);
-        add(attack3BonusField);
-        add(HPLabel);
-        add(tempHPLabel);
-        add(currentHPLabel);
-        add(HPField);
-        add(tempHPField);
-        add(currentHPField);
-        add(currencyLabel);
-        add(copperLabel);
-        add(silverLabel);
-        add(electrumLabel);
-        add(goldLabel);
-        add(platinumLabel);
-        add(copperField);
-        add(silverField);
-        add(electrumField);
-        add(goldField);
-        add(platinumField);
-        add(passiveWisdomField);
-        add(passiveWisdomLabel);
-        add(nextPage);
-        add(saveButton);
+        //Final frame/panel setup
         MainPanel.frame.add(this);
         setVisible(true);
     }
 
+    /** Overrides JPanel paintComponent method and draws background image */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -312,6 +205,7 @@ public class Sheet1Panel extends JPanel {
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 
+    /** Contains setup for all JLabels on page 1 of the editor: sets text, font, bounds, and text color */
     private void initializeLabels() {
         //Player Name label
         playerLabel = new JLabel("Player name:");
@@ -634,6 +528,7 @@ public class Sheet1Panel extends JPanel {
         passiveWisdomLabel.setForeground(Color.WHITE);
     }
 
+    /** Contains setup for all JComboBoxes (drop down menu) on page 1 of the editor: adds options, sets font, bounds, text color */
     private void initializeComboBoxes() {
         //Alignment combo box
         alignmentComboBox = new JComboBox<>();
@@ -678,6 +573,7 @@ public class Sheet1Panel extends JPanel {
         damageTypesComboBox3.setForeground(Color.BLACK);
     }
 
+    /** Contains setup for all JTextFields on page 1 of the editor: sets font and bounds. Text from deserialization is loaded in the load() method */
     private void initializeTextFields() {
         //player name text field
         pNameField = new JTextField();
@@ -982,12 +878,14 @@ public class Sheet1Panel extends JPanel {
         platinumField.setFont(Constants.labels);
     }
 
+    /** Contains setup for the JRadioButton on page 1 of the editor: sets bounds and configures background */
     private void initializeRadioButtons() {
         inspirationRadioButton = new JRadioButton();
         inspirationRadioButton.setBounds(1550, 461, 25, 25);
         inspirationRadioButton.setOpaque(false);
     }
 
+    /** Contains setup for all JButtons on page 1 of the editor: sets bounds, text, font, and action listeners */
     private void initializeButtons() {
         nextPage = new JButton("Next page");
         nextPage.setFont(Constants.buttons);
@@ -1015,6 +913,133 @@ public class Sheet1Panel extends JPanel {
         });
     }
 
+    /** Adds all components to the panel */
+    private void addComponents() {
+        add(pNameField);
+        add(cNameField);
+        add(levelField);
+        add(playerLabel);
+        add(classLabel);
+        add(characterLabel);
+        add(alignmentLabel);
+        add(raceLabel);
+        add(alignmentComboBox);
+        add(raceComboBox);
+        add(classComboBox);
+        add(levelLabel);
+        add(savingThrowLabel);
+        add(strengthLabel);
+        add(dexterityLabel);
+        add(constitutionLabel);
+        add(wisdomLabel);
+        add(charismaLabel);
+        add(intelligenceLabel);
+        add(abilityLabel);
+        add(modifierLabel);
+        add(strengthField);
+        add(strengthMField);
+        add(strengthSTField);
+        add(dexterityField);
+        add(dexterityMField);
+        add(dexteritySTField);
+        add(constitutionField);
+        add(constitutionMField);
+        add(constitutionSTField);
+        add(intelligenceField);
+        add(intelligenceMField);
+        add(intelligenceSTField);
+        add(wisdomField);
+        add(wisdomMField);
+        add(wisdomSTField);
+        add(charismaField);
+        add(charismaMField);
+        add(charismaSTField);
+        add(inspirationLabel);
+        add(inspirationRadioButton);
+        add(proficiencyLabel);
+        add(proficiencyField);
+        add(armorClassField);
+        add(armorClassLabel);
+        add(difficultyClassField);
+        add(difficultyClassLabel);
+        add(speedLabel);
+        add(initiativeLabel);
+        add(speedField);
+        add(experienceLabel);
+        add(experienceField);
+        add(initiativeField);
+        add(acrobaticsLabel);
+        add(arcanaLabel);
+        add(animalHandlingLabel);
+        add(athleticsLabel);
+        add(deceptionLabel);
+        add(historyLabel);
+        add(insightLabel);
+        add(intimidationLabel);
+        add(investigationLabel);
+        add(medicineLabel);
+        add(natureLabel);
+        add(perceptionLabel);
+        add(performanceLabel);
+        add(persuasionLabel);
+        add(religionLabel);
+        add(sleightOfHandLabel);
+        add(stealthLabel);
+        add(survivalLabel);
+        add(acrobaticsField);
+        add(animalHandlingField);
+        add(arcanaField);
+        add(athleticsField);
+        add(historyField);
+        add(deceptionField);
+        add(insightField);
+        add(intimidationField);
+        add(investigationField);
+        add(medicineField);
+        add(natureField);
+        add(perceptionField);
+        add(performanceField);
+        add(persuasionField);
+        add(religionField);
+        add(sleightOfHandField);
+        add(stealthField);
+        add(survivalField);
+        add(attackBonusLabel);
+        add(attackLabel);
+        add(damageTypeLabel);
+        add(damageTypesComboBox1);
+        add(damageTypesComboBox2);
+        add(damageTypesComboBox3);
+        add(attack1Field);
+        add(attack1BonusField);
+        add(attack2Field);
+        add(attack2BonusField);
+        add(attack3Field);
+        add(attack3BonusField);
+        add(HPLabel);
+        add(tempHPLabel);
+        add(currentHPLabel);
+        add(HPField);
+        add(tempHPField);
+        add(currentHPField);
+        add(currencyLabel);
+        add(copperLabel);
+        add(silverLabel);
+        add(electrumLabel);
+        add(goldLabel);
+        add(platinumLabel);
+        add(copperField);
+        add(silverField);
+        add(electrumField);
+        add(goldField);
+        add(platinumField);
+        add(passiveWisdomField);
+        add(passiveWisdomLabel);
+        add(nextPage);
+        add(saveButton);
+    }
+
+    /** Stores information from every JTextField, JComboBox, and JRadioButton in the data class object */
     public void save() {
         MainPanel.sheet.s1.setClasses((Constants.Classes) classComboBox.getSelectedItem());
         MainPanel.sheet.s1.setLevel(levelField.getText());
@@ -1088,6 +1113,7 @@ public class Sheet1Panel extends JPanel {
         MainPanel.sheet.s1.setExperiencePoints(experienceField.getText());
     }
 
+    /** Loads all information from serialized object into JTextFields, JComboBoxes, and JRadioButton */
     public void load() {
         raceComboBox.setSelectedItem(MainPanel.sheet.s1.getRace());
         classComboBox.setSelectedItem(MainPanel.sheet.s1.getClasses());

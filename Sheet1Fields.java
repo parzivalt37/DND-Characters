@@ -6,38 +6,31 @@ import java.util.ArrayList;
 import com.dndcharacters.s1project.GameValues.*;
 
 /**
- * Class containing the fields from the first page of the D&D 5E character sheet
- *
+ * Data class containing fields from the first page of the character editor
  * @author S. Mahon
- * @version 12.5.2022
+ * @version 12.19.2022
  */
 public class Sheet1Fields implements Serializable {
 
-    //basic character information (header of page)
-
+    /** Character class */
     private Constants.Classes classes;
-    /** Level field*/
+    /** Character level */
     private String level;
 
-    /** Player name field*/
+    /** Player name */
     private String pName;
-    /** Character name field*/
+    /** Character name */
     private String cName;
-    /** Race field*/
+    /** Character race */
     private Constants.Races race;
-    /** Character alignment field*/
+    /** Character alignment */
     private Constants.Alignment alignment;
 
-
-    /** ArrayList of the 6 attributes of a D&D character
+    /** ArrayList of the 6 abilities of a D&D character
      * Order: [strength, dexterity, constitution, intelligence, wisdom, charisma]
      * Also contains values for modifiers and saving throws
      */
     public ArrayList<Ability> abilities;
-
-    //Acrobatics, animalhandling, arcana, athletics, deception, history,
-    //insight, intimidation, investigation, medicine, nature, perception,
-    //performance, persuasion, religion, sleight of hand, stealth, survival
 
     /** ArrayList of Skills
      * Order: acrobatics, animal handling, arcana, athletics, deception,
@@ -47,33 +40,39 @@ public class Sheet1Fields implements Serializable {
     public ArrayList<Skill> skills;
 
 
-    /** Boolean of whether or not the character has inspiration */
+    /** Character inspiration */
     private boolean inspiration;
-    /** Integer representing the proficiency bonus modifier*/
+    /** Proficiency bonus modifier*/
     private String proficiencybonus;
-    /** Integer representing the difficulty class*/
+    /** Character's ifficulty class*/
     private String difficultyclass;
-    /** Integer representing the armor class (target roll for an attack) */
+    /** Character's armor class (target roll for an attack) */
     private String armorclass;
-    /** Integer representing a character's initiative */
+    /** Character's initiative */
     private String initiative;
-    /** Integer representing a character's speed */
+    /** Character's speed */
     private String speed;
-    /** String for experience points */
+    /** Character's experience points */
     private String experiencePoints;
+    /** Character's passive wisdom modifier */
+    private String passiveWisdom;
 
-    //index 0 is integer for current hit points
-    //index 1 is integer for maximum hit points
-    //index 2 is integer for temporary hit points
+    /** ArrayList of HP
+     * Order: [Current hit points, maximum hit points, temporary hit points]
+     */
     public ArrayList<String> hp;
+
+    /** ArrayList of character's attacks
+     * Ordered by the list on Sheet1Panel
+     */
     public ArrayList<Attack> attacks;
+
+    /** ArrayList of character's currency
+     * Order: [copper, silver, electrum, gold, platinum]
+     */
     public ArrayList<Currency> currency;
-    private String passiveWisdom; //supposed to be an int, but JTextFields aren't typesafe
 
-
-    /*
-    * CONSTRUCTOR, called in sheet
-    * */
+    /** Constructor, called in sheet: sets up all fields as blank */
     public Sheet1Fields() {
         level = "";
         pName = "";
@@ -81,15 +80,10 @@ public class Sheet1Fields implements Serializable {
         race = Constants.Races.DEFAULT;
         alignment = Constants.Alignment.TrueNeutral;
 
-
-        //instantiation and assignment of abilities arraylist
         abilities = new ArrayList<>();
-        //instantiation and assignment of skills arraylist
         skills = new ArrayList<>();
-        //instantiation of attacks arraylist: this one is not assigned initial values because attacks are based on user
-        //preference and not a predefined list
+        hp = new ArrayList<>();
         attacks = new ArrayList<>();
-        //instantiation and assignment of currency arraylist
         currency = new ArrayList<>();
 
         inspiration = false;
@@ -98,43 +92,38 @@ public class Sheet1Fields implements Serializable {
         difficultyclass = "";
         initiative = "";
         speed = "";
-        hp = new ArrayList<>();
-        attacks = new ArrayList<>();
-        currency = new ArrayList<>();
     }
 
-    /*
-    * METHODS
-    */
-    /** Returns player name*/
+
+    //Getter and setter methods
     public String getpName() {
         return pName;
     }
-    /** Sets player name*/
+
     public void setpName(String s) {
         pName = s;
     }
-    /** Returns character name*/
+
     public String getcName() {
         return cName;
     }
-    /** Sets character name */
+
     public void setcName(String s) {
         cName = s;
     }
-    /** Returns character race */
+
     public Constants.Races getRace() {
         return race;
     }
-    /** Sets character race */
+
     public void setRace(Constants.Races r) {
         race = r;
     }
-    /** Returns character alignment */
+
     public Constants.Alignment getAlignment() {
         return alignment;
     }
-    /** Sets character alignment */
+
     public void setAlignment(Constants.Alignment a) {
         alignment = a;
     }

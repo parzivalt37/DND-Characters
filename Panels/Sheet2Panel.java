@@ -14,26 +14,30 @@ import java.awt.event.ActionEvent;
 
 import com.dndcharacters.s1project.Constants;
 
+/** Sheet2Panel: extends JPanel and shows all labels, text fields, etc. on page 2
+ * @author S. Mahon
+ * @version 12.19.2022
+ */
 public class Sheet2Panel extends JPanel {
 
     //JLabels
-    public static JLabel alliesLabel;
-    public static JLabel featuresLabel;
-    public static JLabel backstoryLabel;
-    public static JLabel treasureLabel;
-    public static JLabel ageLabel;
-    public static JLabel heightLabel;
-    public static JLabel weightLabel;
-    public static JLabel eyesLabel;
-    public static JLabel skinLabel;
-    public static JLabel hairLabel;
-    public static JLabel personalityTraitsLabel;
-    public static JLabel idealsLabel;
-    public static JLabel bondsLabel;
-    public static JLabel flawsLabel;
-    public static JLabel additionalFeaturesLabel;
-    public static JLabel otherProficienciesLabel;
-    public static JLabel languagesLabel;
+    private static JLabel alliesLabel;
+    private static JLabel featuresLabel;
+    private static JLabel backstoryLabel;
+    private static JLabel treasureLabel;
+    private static JLabel ageLabel;
+    private static JLabel heightLabel;
+    private static JLabel weightLabel;
+    private static JLabel eyesLabel;
+    private static JLabel skinLabel;
+    private static JLabel hairLabel;
+    private static JLabel personalityTraitsLabel;
+    private static JLabel idealsLabel;
+    private static JLabel bondsLabel;
+    private static JLabel flawsLabel;
+    private static JLabel additionalFeaturesLabel;
+    private static JLabel otherProficienciesLabel;
+    private static JLabel languagesLabel;
 
     //JTextFields
     public static JTextArea alliesArea;
@@ -53,9 +57,11 @@ public class Sheet2Panel extends JPanel {
     public static JTextArea additionalFeaturesArea;
     public static JTextArea otherProficienciesArea;
 
+    //JButtons
     public static JButton previousPage;
     public static JButton saveButton;
 
+    /** Constructor, called in MainPanel: configures frame, initializes and adds all components*/
     public Sheet2Panel() {
         setSize(1920, 1080);
         setLayout(null);
@@ -67,7 +73,6 @@ public class Sheet2Panel extends JPanel {
         add(alliesLabel);
         add(featuresLabel);
         add(backstoryLabel);
-        //
         add(treasureLabel);
         add(ageLabel);
         add(heightLabel);
@@ -108,6 +113,7 @@ public class Sheet2Panel extends JPanel {
         setVisible(true);
     }
 
+    /** Overrides JPanel paintComponent method and draws background image */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -118,6 +124,7 @@ public class Sheet2Panel extends JPanel {
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 
+    /** Contains setup for all JLabels on page 2 of the editor: sets text, font, boundaries, and text color */
     private void initializeLabels() {
         //allies label
         alliesLabel = new JLabel("Allies:");
@@ -222,6 +229,7 @@ public class Sheet2Panel extends JPanel {
         languagesLabel.setForeground(Color.WHITE);
     }
 
+    /** Contains setup for all JTextFields and JTextAreas on page 2 of the editor: sets bounds, fonts, and line wrap */
     private void initializeTextFieldsAreas() {
         //allies text area
         alliesArea = new JTextArea();
@@ -314,6 +322,7 @@ public class Sheet2Panel extends JPanel {
         otherProficienciesArea.setLineWrap(true);
     }
 
+    /** Contains setup for all JButtons on page 2 of the editor: sets bounds, fonts, and action listeners */
     private void initializeButtons() {
         previousPage = new JButton("Last page");
         previousPage.setFont(Constants.buttons);
@@ -341,6 +350,7 @@ public class Sheet2Panel extends JPanel {
         });
     }
 
+    /** Stores information from every JTextField and JTextArea in the data class object */
     public void save() {
         MainPanel.sheet.s2.setAllies(alliesArea.getText());
         MainPanel.sheet.s2.setFeatures(featuresArea.getText());
@@ -360,6 +370,7 @@ public class Sheet2Panel extends JPanel {
         MainPanel.sheet.s2.setOtherProficiencies(otherProficienciesArea.getText());
     }
 
+    /** Loads all information from serialized object into JTextFields and JTextAreas */
     public void load() {
         alliesArea.setText(MainPanel.sheet.s2.getAllies());
         featuresArea.setText(MainPanel.sheet.s2.getFeatures());

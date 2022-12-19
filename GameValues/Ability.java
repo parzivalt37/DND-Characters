@@ -3,29 +3,24 @@ package com.dndcharacters.s1project.GameValues;
 import java.io.Serializable;
 import com.dndcharacters.s1project.Constants;
 
-/** Class for Ability types - contains ability type, value, modifier, and saving throw */
+/**
+ * Class for Ability types - contains ability type, value, modifier, and saving throw
+ *
+ * @author S. Mahon
+ * @version 12.15.2022
+ */
 public class Ability implements Serializable {
 
-    /**
-     * Ability
-     */
+    /** Ability state variable */
     private Constants.Ability ability;
-    /**
-     * Value of ability
-     */
+    /** Ability score*/
     private String abilityValue;
-    /**
-     * Value of modifier
-     */
+    /** Ability modifier score */
     private String modifierValue;
-    /**
-     * Value of saving throw
-     */
+    /** Ability saving throw score */
     private String savingThrowValue;
 
-    /**
-     * Constructor, called in Sheet1Fields
-     */
+    /**Constructor, called in Sheet1Fields */
     public Ability(Constants.Ability a, String val, String modifierVal, String savingThrow) {
         ability = a;
         abilityValue = val;
@@ -33,63 +28,20 @@ public class Ability implements Serializable {
         savingThrowValue = savingThrow;
     }
 
-    /*
-     * METHODS
-     */
 
-    /**
-     * Returns ability
-     */
-    public Constants.Ability getAbility() {
-        return ability;
-    }
+    //getter methods for each field
+    //getter for Ability not necessary, Arraylist of Abilities is hardcoded in a certain order
+    //setters not necessary, abilities are initialized in constructor in serialization
 
-    /**
-     * Sets ability
-     */
-    public void setAbility(Constants.Ability a) {
-        ability = a;
-    }
-
-    /**
-     * Returns ability value
-     */
     public String getAbilityValue() {
         return abilityValue;
     }
 
-    /**
-     * Sets ability value
-     */
-    public void setAbilityValue(String aV) {
-        abilityValue = aV;
-    }
-
-    /**
-     * Returns modifier value
-     */
     public String getModifierValue() {
         return modifierValue;
     }
 
-    /**
-     * Sets modifier value
-     */
-    public void setModifierValue(String mV) {
-        modifierValue = mV;
-    }
-
-    /**
-     * Returns saving throw value
-     */
     public String getSavingThrowValue() {
         return savingThrowValue;
-    }
-
-    /**
-     * Sets saving throw value
-     */
-    public void setSavingThrowValue(String sTV) {
-        savingThrowValue = sTV;
     }
 }

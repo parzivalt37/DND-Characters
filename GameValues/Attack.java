@@ -20,31 +20,18 @@ public class Attack implements Serializable {
         damageType = dT;
     }
 
-    /*
-     * METHODS
-     */
-    /** Returns name of attack */
+    //getter methods
+    //setters not necessary as attacks are initialized in constructor when serialized
+
     public String getAttackName() {
         return attackName;
     }
-    /** Returns attack bonus */
+
     public String getAtkBonus() {
         return atkBonus;
     }
-    /** Returns damage types */
+
     public Constants.DamageTypes getDamageType() {
         return damageType;
-    }
-    /** Sets attack name*/
-    public void setAttackName(String attackName) {
-        this.attackName = attackName;
-    }
-    /** Sets attack bonus */
-    public void setAtkBonus(String atkBonus) {
-        this.atkBonus = atkBonus;
-    }
-    /** Sets type of damage*/
-    public void setDamageType(Constants.DamageTypes damageType) {
-        this.damageType = damageType;
     }
 }

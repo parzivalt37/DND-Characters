@@ -2,6 +2,11 @@ package com.dndcharacters.s1project;
 
 import com.dndcharacters.s1project.Panels.*;
 
+/**
+ * Main class: starts the application
+ * @author S. Mahon
+ * @version 12.15.2022
+ */
 public class Main {
     public static void main(String[] args) {
         try {
@@ -10,7 +15,6 @@ public class Main {
             ex.printStackTrace();
         }
 
-        //TODO: make a label class and override JLabel, because having 80 bajillion commands to set up one label is excessive
         //TODO: alphabetize all import statements
     }
 }

@@ -3,7 +3,12 @@ package com.dndcharacters.s1project.GameValues;
 import java.io.Serializable;
 import com.dndcharacters.s1project.Constants;
 
-/** Class for Currency Types - contains value and type */
+/**
+ * Class for Currency Types - contains value and type
+ *
+ * @author S. Mahon
+ * @version 12.15.2022
+ */
 public class Currency implements Serializable {
 
     /** Value of currency */
@@ -11,31 +16,17 @@ public class Currency implements Serializable {
     /** Type of currency (gold, platinum, etc.) */
     private Constants.CurrencyType currencyType;
 
-    /** Constructor, called in Sheet1Fields*/
+    /** Constructor, called in Sheet1Panel */
     public Currency(Constants.CurrencyType type, String v) {
         currencyType = type;
         value = v;
     }
 
-    /*
-     * METHODS
-     */
-    /** Returns value of currency */
+    //getter methods
+    //setters not necessary, values are initialized correctly in constructor through serialization
+    //getcurrencytype not necessary
+
     public String getValue() {
         return value;
     }
-    /** Returns type of currency */
-    public Constants.CurrencyType getCurrencyType() {
-        return currencyType;
-    }
-    /** Sets value of currency */
-    public void setValue(String value) {
-        this.value = value;
-    }
-    /** Sets type of currency */
-    public void setCurrencyType(Constants.CurrencyType currencyType) {
-        this.currencyType = currencyType;
-    }
-
-
 }

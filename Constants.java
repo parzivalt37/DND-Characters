@@ -2,14 +2,14 @@ package com.dndcharacters.s1project;
 
 import java.awt.*;
 
+/** Class containing all fundamental constants of the program e.g. fonts, enums with set game types, etc. */
 public class Constants {
     /** Font object for labels */
-    public static Font labels;
+    public static Font labels = new Font("Serif", Font.BOLD, 20);
     /** Font object for buttons */
-    public static Font buttons;
-    /** Font for save button*/
-    public static Font saveFont;
+    public static Font buttons = new Font("Serif", Font.BOLD, 30);
 
+    /** Defines every race in D&D, used for the races JComboBox in Sheet1Panel */
     public enum Races {
         Aarakocra,
         Aasimar,
@@ -126,6 +126,7 @@ public class Constants {
         Zombie
     }
 
+    /** Defines all D&D skills, used in serialization of the skills ArrayList in Sheet1Fields */
     public enum Skills {
         Acrobatics,
         AnimalHandling,
@@ -147,6 +148,7 @@ public class Constants {
         Survival
     }
 
+    /** Defines all alignments, used in adding options to alignment JComboBox in Sheet1Panel */
     public enum Alignment {
         LawfulGood,
         LawfulNeutral,
@@ -159,6 +161,7 @@ public class Constants {
         ChaoticEvil
     }
 
+    /** Defines all damage types, used in adding options to damage type JComboBoxes in Sheet1Panel */
     public enum DamageTypes {
         Acid,
         Bludgeoning,
@@ -175,6 +178,7 @@ public class Constants {
         Thunder
     }
 
+    /** Defines all character classes, used in adding options to class JComboBox in Sheet1Panel */
     public enum Classes {
         Barbarian,
         Bard,
@@ -190,6 +194,7 @@ public class Constants {
         Wizard
     }
 
+    /** Defines all types of abilities, used in serialization of the ability ArrayList in Sheet1Fields */
     public enum Ability {
         Strength,
         Dexterity,
@@ -199,6 +204,7 @@ public class Constants {
         Charisma
     }
 
+    /** Defines all currency types, used in serialization of the ability ArrayList in Sheet1Fields */
     public enum CurrencyType {
         Copper,
         Silver,
