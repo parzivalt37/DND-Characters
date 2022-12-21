@@ -3,11 +3,14 @@ package com.dndcharacters.s1project;
 import java.awt.Font;
 
 /** Class containing all fundamental constants of the program e.g. fonts, enums with set game types, etc. */
+@SuppressWarnings("unused")
 public class Constants {
     /** Font object for labels */
     public static Font labels = new Font("Serif", Font.BOLD, 20);
     /** Font object for buttons */
     public static Font buttons = new Font("Serif", Font.BOLD, 30);
+    /** Title font */
+    public static Font titleFont = new Font("DialogInput", Font.BOLD, 90);
 
     /** Defines every race in D&D, used for the races JComboBox in Sheet1Panel */
     public enum Races {

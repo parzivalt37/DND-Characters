@@ -1,174 +1,170 @@
 package com.dndcharacters.s1project.Panels;
 
 import com.dndcharacters.s1project.*;
+import com.dndcharacters.s1project.Components.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.Graphics2D;
 
 import java.util.EnumSet;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
 /** Sheet1Panel: extends JPanel and shows all labels, text fields, etc. on page 1
  * @author S. Mahon
  * @version 12.19.2022
  */
+@SuppressWarnings("DuplicatedCode")
 public class Sheet1Panel extends JPanel {
 
     //JButtons
     /** Button to navigate to the second page */
-    private static JButton nextPage;
+    private static Button nextPage;
     /** Save button to be displayed on every panel */
-    public static JButton saveButton = new JButton("Save and exit");
+    public static Button saveButton;
 
     //JLabels
     //General character information
-    private static JLabel playerLabel;
-    private static JLabel characterLabel;
-    private static JLabel raceLabel;
-    private static JLabel classLabel;
-    private static JLabel levelLabel;
-    private static JLabel alignmentLabel;
+    private static Label playerLabel;
+    private static Label characterLabel;
+    private static Label raceLabel;
+    private static Label classLabel;
+    private static Label levelLabel;
+    private static Label alignmentLabel;
     //Ability labels
-    private static JLabel strengthLabel;
-    private static JLabel dexterityLabel;
-    private static JLabel constitutionLabel;
-    private static JLabel intelligenceLabel;
-    private static JLabel wisdomLabel;
-    private static JLabel charismaLabel;
-    private static JLabel abilityLabel;
-    private static JLabel modifierLabel;
-    private static JLabel savingThrowLabel;
+    private static Label strengthLabel;
+    private static Label dexterityLabel;
+    private static Label constitutionLabel;
+    private static Label intelligenceLabel;
+    private static Label wisdomLabel;
+    private static Label charismaLabel;
+    private static Label abilityLabel;
+    private static Label modifierLabel;
+    private static Label savingThrowLabel;
     //Other character information
-    private static JLabel inspirationLabel;
-    private static JLabel proficiencyLabel;
-    private static JLabel armorClassLabel;
-    private static JLabel difficultyClassLabel;
-    private static JLabel initiativeLabel;
-    private static JLabel speedLabel;
-    private static JLabel experienceLabel;
-    private static JLabel passiveWisdomLabel;
+    private static Label inspirationLabel;
+    private static Label proficiencyLabel;
+    private static Label armorClassLabel;
+    private static Label difficultyClassLabel;
+    private static Label initiativeLabel;
+    private static Label speedLabel;
+    private static Label experienceLabel;
+    private static Label passiveWisdomLabel;
     //Skill JLabels
-    private static JLabel acrobaticsLabel;
-    private static JLabel animalHandlingLabel;
-    private static JLabel arcanaLabel;
-    private static JLabel athleticsLabel;
-    private static JLabel historyLabel;
-    private static JLabel deceptionLabel;
-    private static JLabel insightLabel;
-    private static JLabel intimidationLabel;
-    private static JLabel investigationLabel;
-    private static JLabel medicineLabel;
-    private static JLabel natureLabel;
-    private static JLabel perceptionLabel;
-    private static JLabel performanceLabel;
-    private static JLabel persuasionLabel;
-    private static JLabel religionLabel;
-    private static JLabel sleightOfHandLabel;
-    private static JLabel stealthLabel;
-    private static JLabel survivalLabel;
+    private static Label acrobaticsLabel;
+    private static Label animalHandlingLabel;
+    private static Label arcanaLabel;
+    private static Label athleticsLabel;
+    private static Label historyLabel;
+    private static Label deceptionLabel;
+    private static Label insightLabel;
+    private static Label intimidationLabel;
+    private static Label investigationLabel;
+    private static Label medicineLabel;
+    private static Label natureLabel;
+    private static Label perceptionLabel;
+    private static Label performanceLabel;
+    private static Label persuasionLabel;
+    private static Label religionLabel;
+    private static Label sleightOfHandLabel;
+    private static Label stealthLabel;
+    private static Label survivalLabel;
     //attacks
-    private static JLabel attackLabel;
-    private static JLabel attackBonusLabel;
-    private static JLabel damageTypeLabel;
+    private static Label attackLabel;
+    private static Label attackBonusLabel;
+    private static Label damageTypeLabel;
     //hp
-    private static JLabel HPLabel;
-    private static JLabel tempHPLabel;
-    private static JLabel currentHPLabel;
+    private static Label HPLabel;
+    private static Label tempHPLabel;
+    private static Label currentHPLabel;
     //currency
-    private static JLabel currencyLabel;
-    private static JLabel copperLabel;
-    private static JLabel silverLabel;
-    private static JLabel electrumLabel;
-    private static JLabel goldLabel;
-    private static JLabel platinumLabel;
+    private static Label currencyLabel;
+    private static Label copperLabel;
+    private static Label silverLabel;
+    private static Label electrumLabel;
+    private static Label goldLabel;
+    private static Label platinumLabel;
 
     //JComboBox
-    public static JComboBox<Constants.Races> raceComboBox;
-    public static JComboBox<Constants.Classes> classComboBox;
-    public static JComboBox<Constants.Alignment> alignmentComboBox;
-    public static JComboBox<Constants.DamageTypes> damageTypesComboBox1;
-    public static JComboBox<Constants.DamageTypes> damageTypesComboBox2;
-    public static JComboBox<Constants.DamageTypes> damageTypesComboBox3;
+    public static ComboBox<Constants.Races> raceComboBox;
+    public static ComboBox<Constants.Classes> classComboBox;
+    public static ComboBox<Constants.Alignment> alignmentComboBox;
+    public static ComboBox<Constants.DamageTypes> damageTypesComboBox1;
+    public static ComboBox<Constants.DamageTypes> damageTypesComboBox2;
+    public static ComboBox<Constants.DamageTypes> damageTypesComboBox3;
 
     //JTextFields
-    //Genreal information
-    public static JTextField pNameField;
-    public static JTextField cNameField;
-    public static JTextField levelField;
-    public static JTextField passiveWisdomField;
+    //General information
+    public static TextField pNameField;
+    public static TextField cNameField;
+    public static TextField levelField;
+    public static TextField passiveWisdomField;
     //Ability fields
-    public static JTextField strengthField;
-    public static JTextField dexterityField;
-    public static JTextField constitutionField;
-    public static JTextField intelligenceField;
-    public static JTextField wisdomField;
-    public static JTextField charismaField;
+    public static TextField strengthField;
+    public static TextField dexterityField;
+    public static TextField constitutionField;
+    public static TextField intelligenceField;
+    public static TextField wisdomField;
+    public static TextField charismaField;
     //Modifier fields
-    public static JTextField strengthMField;
-    public static JTextField dexterityMField;
-    public static JTextField constitutionMField;
-    public static JTextField intelligenceMField;
-    public static JTextField wisdomMField;
-    public static JTextField charismaMField;
+    public static TextField strengthMField;
+    public static TextField dexterityMField;
+    public static TextField constitutionMField;
+    public static TextField intelligenceMField;
+    public static TextField wisdomMField;
+    public static TextField charismaMField;
     //Saving throw fields
-    public static JTextField strengthSTField;
-    public static JTextField dexteritySTField;
-    public static JTextField constitutionSTField;
-    public static JTextField intelligenceSTField;
-    public static JTextField wisdomSTField;
-    public static JTextField charismaSTField;
+    public static TextField strengthSTField;
+    public static TextField dexteritySTField;
+    public static TextField constitutionSTField;
+    public static TextField intelligenceSTField;
+    public static TextField wisdomSTField;
+    public static TextField charismaSTField;
     //Other character information
-    public static JTextField proficiencyField;
-    public static JTextField armorClassField;
-    public static JTextField difficultyClassField;
-    public static JTextField initiativeField;
-    public static JTextField speedField;
-    public static JTextField experienceField;
+    public static TextField proficiencyField;
+    public static TextField armorClassField;
+    public static TextField difficultyClassField;
+    public static TextField initiativeField;
+    public static TextField speedField;
+    public static TextField experienceField;
     //Skill fields
-    public static JTextField acrobaticsField;
-    public static JTextField animalHandlingField;
-    public static JTextField arcanaField;
-    public static JTextField athleticsField;
-    public static JTextField historyField;
-    public static JTextField deceptionField;
-    public static JTextField insightField;
-    public static JTextField intimidationField;
-    public static JTextField investigationField;
-    public static JTextField medicineField;
-    public static JTextField natureField;
-    public static JTextField perceptionField;
-    public static JTextField performanceField;
-    public static JTextField persuasionField;
-    public static JTextField religionField;
-    public static JTextField sleightOfHandField;
-    public static JTextField stealthField;
-    public static JTextField survivalField;
+    public static TextField acrobaticsField;
+    public static TextField animalHandlingField;
+    public static TextField arcanaField;
+    public static TextField athleticsField;
+    public static TextField historyField;
+    public static TextField deceptionField;
+    public static TextField insightField;
+    public static TextField intimidationField;
+    public static TextField investigationField;
+    public static TextField medicineField;
+    public static TextField natureField;
+    public static TextField perceptionField;
+    public static TextField performanceField;
+    public static TextField persuasionField;
+    public static TextField religionField;
+    public static TextField sleightOfHandField;
+    public static TextField stealthField;
+    public static TextField survivalField;
     //Attack fields
-    public static JTextField attack1Field;
-    public static JTextField attack2Field;
-    public static JTextField attack3Field;
-    public static JTextField attack1BonusField;
-    public static JTextField attack2BonusField;
-    public static JTextField attack3BonusField;
+    public static TextField attack1Field;
+    public static TextField attack2Field;
+    public static TextField attack3Field;
+    public static TextField attack1BonusField;
+    public static TextField attack2BonusField;
+    public static TextField attack3BonusField;
     //HP fields
-    public static JTextField HPField;
-    public static JTextField tempHPField;
-    public static JTextField currentHPField;
+    public static TextField HPField;
+    public static TextField tempHPField;
+    public static TextField currentHPField;
     //Currency fields
-    public static JTextField copperField;
-    public static JTextField silverField;
-    public static JTextField electrumField;
-    public static JTextField goldField;
-    public static JTextField platinumField;
+    public static TextField copperField;
+    public static TextField silverField;
+    public static TextField electrumField;
+    public static TextField goldField;
+    public static TextField platinumField;
 
     //JRadioButtons
     //Other information
@@ -207,674 +203,496 @@ public class Sheet1Panel extends JPanel {
     /** Contains setup for all JLabels on page 1 of the editor: sets text, font, bounds, and text color */
     private void initializeLabels() {
         //Player Name label
-        playerLabel = new JLabel("Player name:");
-        playerLabel.setFont(Constants.labels);
+        playerLabel = new Label("Player name:");
         playerLabel.setBounds(0, 100, 200, 50);
-        playerLabel.setForeground(Color.WHITE);
 
         //Character Name label
-        characterLabel = new JLabel("Character name:");
-        characterLabel.setFont(Constants.labels);
+        characterLabel = new Label("Character name:");
         characterLabel.setBounds(0, 150, 200, 50);
-        characterLabel.setForeground(Color.WHITE);
 
         //Race label
-        raceLabel = new JLabel("Race:");
-        raceLabel.setFont(Constants.labels);
+        raceLabel = new Label("Race:");
         raceLabel.setBounds(0, 200, 200, 50);
-        raceLabel.setForeground(Color.WHITE);
 
         //Class label
-        classLabel = new JLabel("Class:");
-        classLabel.setFont(Constants.labels);
+        classLabel = new Label("Class:");
         classLabel.setBounds(0, 250, 200, 50);
-        classLabel.setForeground(Color.WHITE);
 
         //Level label
-        levelLabel = new JLabel("Level:");
-        levelLabel.setFont(Constants.labels);
+        levelLabel = new Label("Level:");
         levelLabel.setBounds(0, 300, 200, 50);
-        levelLabel.setForeground(Color.WHITE);
 
         //Alignment label
-        alignmentLabel = new JLabel("Alignment:");
-        alignmentLabel.setFont(Constants.labels);
+        alignmentLabel = new Label("Alignment:");
         alignmentLabel.setBounds(0, 350, 200, 50);
-        alignmentLabel.setForeground(Color.WHITE);
 
         //Ability label
-        abilityLabel = new JLabel("Ability Scores");
-        abilityLabel.setFont(Constants.labels);
+        abilityLabel = new Label("Ability Scores");
         abilityLabel.setBounds(175, 400, 200, 50);
-        abilityLabel.setForeground(Color.WHITE);
 
         //Modifier label
-        modifierLabel = new JLabel("Modifiers");
-        modifierLabel.setFont(Constants.labels);
+        modifierLabel = new Label("Modifiers");
         modifierLabel.setBounds(340, 400, 200, 50);
-        modifierLabel.setForeground(Color.WHITE);
 
         //Saving throw label
-        savingThrowLabel = new JLabel("Saving Throws");
-        savingThrowLabel.setFont(Constants.labels);
+        savingThrowLabel = new Label("Saving Throws");
         savingThrowLabel.setBounds(500, 400, 200, 50);
-        savingThrowLabel.setForeground(Color.WHITE);
 
         //Strength label
-        strengthLabel = new JLabel("Strength:");
-        strengthLabel.setFont(Constants.labels);
+        strengthLabel = new Label("Strength:");
         strengthLabel.setBounds(0, 450, 200, 50);
-        strengthLabel.setForeground(Color.WHITE);
 
         //Dexterity label
-        dexterityLabel = new JLabel("Dexterity:");
-        dexterityLabel.setFont(Constants.labels);
+        dexterityLabel = new Label("Dexterity:");
         dexterityLabel.setBounds(0, 500, 200, 50);
-        dexterityLabel.setForeground(Color.WHITE);
 
-        //Constutition label
-        constitutionLabel = new JLabel("Constitution:");
-        constitutionLabel.setFont(Constants.labels);
+        //Constitution label
+        constitutionLabel = new Label("Constitution:");
         constitutionLabel.setBounds(0, 550, 200, 50);
-        constitutionLabel.setForeground(Color.WHITE);
 
         //Intelligence label
-        intelligenceLabel = new JLabel("Intelligence:");
-        intelligenceLabel.setFont(Constants.labels);
+        intelligenceLabel = new Label("Intelligence:");
         intelligenceLabel.setBounds(0, 600, 200, 50);
-        intelligenceLabel.setForeground(Color.WHITE);
 
         //Charisma label
-        charismaLabel = new JLabel("Charisma:");
-        charismaLabel.setFont(Constants.labels);
+        charismaLabel = new Label("Charisma:");
         charismaLabel.setBounds(0, 650, 200, 50);
-        charismaLabel.setForeground(Color.WHITE);
 
         //Wisdom label
-        wisdomLabel = new JLabel("Wisdom:");
-        wisdomLabel.setFont(Constants.labels);
+        wisdomLabel = new Label("Wisdom:");
         wisdomLabel.setBounds(0, 700, 200, 50);
-        wisdomLabel.setForeground(Color.WHITE);
 
         //Experience label
-        experienceLabel = new JLabel("Experience points:");
-        experienceLabel.setFont(Constants.labels);
+        experienceLabel = new Label("Experience points:");
         experienceLabel.setBounds(0, 750, 200, 50);
-        experienceLabel.setForeground(Color.WHITE);
 
         //Proficiency bonus
-        proficiencyLabel = new JLabel("Proficiency bonus:");
-        proficiencyLabel.setFont(Constants.labels);
+        proficiencyLabel = new Label("Proficiency bonus:");
         proficiencyLabel.setBounds(0, 800, 200, 50);
-        proficiencyLabel.setForeground(Color.WHITE);
 
         //Armor class label
-        armorClassLabel = new JLabel("Armor class:");
-        armorClassLabel.setFont(Constants.labels);
+        armorClassLabel = new Label("Armor class:");
         armorClassLabel.setBounds(0, 850, 200, 50);
-        armorClassLabel.setForeground(Color.WHITE);
 
         //Difficulty class label
-        difficultyClassLabel = new JLabel("Difficulty class:");
-        difficultyClassLabel.setFont(Constants.labels);
+        difficultyClassLabel = new Label("Difficulty class:");
         difficultyClassLabel.setBounds(0, 900, 200, 50);
-        difficultyClassLabel.setForeground(Color.WHITE);
 
         //Initiative label
-        initiativeLabel = new JLabel("Initiative:");
-        initiativeLabel.setFont(Constants.labels);
+        initiativeLabel = new Label("Initiative:");
         initiativeLabel.setBounds(0, 950, 200, 50);
-        initiativeLabel.setForeground(Color.WHITE);
 
         //Speed label
-        speedLabel = new JLabel("Speed:");
-        speedLabel.setFont(Constants.labels);
+        speedLabel = new Label("Speed:");
         speedLabel.setBounds(0, 1000, 200, 50);
-        speedLabel.setForeground(Color.WHITE);
 
         //Skill labels
         //Acrobatics label
-        acrobaticsLabel = new JLabel("Acrobatics:");
-        acrobaticsLabel.setFont(Constants.labels);
+        acrobaticsLabel = new Label("Acrobatics:");
         acrobaticsLabel.setBounds(700, 100, 200, 50);
-        acrobaticsLabel.setForeground(Color.WHITE);
 
         //Animal Handling Label
-        animalHandlingLabel = new JLabel("Animal handling:");
-        animalHandlingLabel.setFont(Constants.labels);
+        animalHandlingLabel = new Label("Animal handling:");
         animalHandlingLabel.setBounds(700, 150, 200, 50);
-        animalHandlingLabel.setForeground(Color.WHITE);
 
         //Arcana label
-        arcanaLabel = new JLabel("Arcana:");
-        arcanaLabel.setFont(Constants.labels);
+        arcanaLabel = new Label("Arcana:");
         arcanaLabel.setBounds(700, 200, 200, 50);
-        arcanaLabel.setForeground(Color.WHITE);
 
         //Athletics label
-        athleticsLabel = new JLabel("Athletics:");
-        athleticsLabel.setFont(Constants.labels);
+        athleticsLabel = new Label("Athletics:");
         athleticsLabel.setBounds(700, 250, 200, 50);
-        athleticsLabel.setForeground(Color.WHITE);
 
         //Deception label
-        deceptionLabel = new JLabel("Deception:");
-        deceptionLabel.setFont(Constants.labels);
+        deceptionLabel = new Label("Deception:");
         deceptionLabel.setBounds(700, 300, 200, 50);
-        deceptionLabel.setForeground(Color.WHITE);
 
         //History label
-        historyLabel = new JLabel("History:");
-        historyLabel.setFont(Constants.labels);
+        historyLabel = new Label("History:");
         historyLabel.setBounds(700, 350, 200, 50);
-        historyLabel.setForeground(Color.WHITE);
 
         //Insight label
-        insightLabel = new JLabel("Insight:");
-        insightLabel.setFont(Constants.labels);
+        insightLabel = new Label("Insight:");
         insightLabel.setBounds(700, 400, 200, 50);
-        insightLabel.setForeground(Color.WHITE);
 
         //Intimidation label
-        intimidationLabel = new JLabel("Intimidation:");
-        intimidationLabel.setFont(Constants.labels);
+        intimidationLabel = new Label("Intimidation:");
         intimidationLabel.setBounds(700, 450, 200, 50);
-        intimidationLabel.setForeground(Color.WHITE);
 
         //Investigation label
-        investigationLabel = new JLabel("Investigation:");
-        investigationLabel.setFont(Constants.labels);
+        investigationLabel = new Label("Investigation:");
         investigationLabel.setBounds(700, 500, 200, 50);
-        investigationLabel.setForeground(Color.WHITE);
 
         //Medicine label
-        medicineLabel = new JLabel("Medicine:");
-        medicineLabel.setFont(Constants.labels);
+        medicineLabel = new Label("Medicine:");
         medicineLabel.setBounds(700, 550, 200, 50);
-        medicineLabel.setForeground(Color.WHITE);
 
         //Nature label
-        natureLabel = new JLabel("Nature:");
-        natureLabel.setFont(Constants.labels);
+        natureLabel = new Label("Nature:");
         natureLabel.setBounds(700, 600, 200, 50);
-        natureLabel.setForeground(Color.WHITE);
 
         //Perception label
-        perceptionLabel = new JLabel("Perception:");
-        perceptionLabel.setFont(Constants.labels);
+        perceptionLabel = new Label("Perception:");
         perceptionLabel.setBounds(700, 650, 200, 50);
-        perceptionLabel.setForeground(Color.WHITE);
 
         //Performance label
-        performanceLabel = new JLabel("Performance:");
-        performanceLabel.setFont(Constants.labels);
+        performanceLabel = new Label("Performance:");
         performanceLabel.setBounds(700, 700, 200, 50);
-        performanceLabel.setForeground(Color.WHITE);
 
         //Persuasion label
-        persuasionLabel = new JLabel("Persuasion:");
-        persuasionLabel.setFont(Constants.labels);
+        persuasionLabel = new Label("Persuasion:");
         persuasionLabel.setBounds(700, 750, 200, 50);
-        persuasionLabel.setForeground(Color.WHITE);
 
         //Religion label
-        religionLabel = new JLabel("Religion:");
-        religionLabel.setFont(Constants.labels);
+        religionLabel = new Label("Religion:");
         religionLabel.setBounds(700, 800, 300, 50);
-        religionLabel.setForeground(Color.WHITE);
 
         //Sleight of hand label
-        sleightOfHandLabel = new JLabel("Sleight of hand:");
-        sleightOfHandLabel.setFont(Constants.labels);
+        sleightOfHandLabel = new Label("Sleight of hand:");
         sleightOfHandLabel.setBounds(700, 850, 300, 50);
-        sleightOfHandLabel.setForeground(Color.WHITE);
 
         //Stealth label
-        stealthLabel = new JLabel("Stealth:");
-        stealthLabel.setFont(Constants.labels);
+        stealthLabel = new Label("Stealth:");
         stealthLabel.setBounds(700, 900, 300, 50);
-        stealthLabel.setForeground(Color.WHITE);
 
         //Survival label
-        survivalLabel = new JLabel("Survival:");
-        survivalLabel.setFont(Constants.labels);
+        survivalLabel = new Label("Survival:");
         survivalLabel.setBounds(700, 950, 300, 50);
-        survivalLabel.setForeground(Color.WHITE);
 
         //Attacks label
-        attackLabel = new JLabel("Attacks");
-        attackLabel.setFont(Constants.labels);
+        attackLabel = new Label("Attacks");
         attackLabel.setBounds(1300, 100, 200, 50);
-        attackLabel.setForeground(Color.WHITE);
 
         //Attack bonus label
-        attackBonusLabel = new JLabel("Attack bonus");
-        attackBonusLabel.setFont(Constants.labels);
+        attackBonusLabel = new Label("Attack bonus");
         attackBonusLabel.setBounds(1550, 100, 200, 50);
-        attackBonusLabel.setForeground(Color.WHITE);
 
         //Damage type label
-        damageTypeLabel = new JLabel("Damage type");
-        damageTypeLabel.setFont(Constants.labels);
+        damageTypeLabel = new Label("Damage type");
         damageTypeLabel.setBounds(1675, 100, 200, 50);
-        damageTypeLabel.setForeground(Color.WHITE);
 
         //HP label
-        HPLabel = new JLabel("Hit points:");
-        HPLabel.setFont(Constants.labels);
+        HPLabel = new Label("Hit points:");
         HPLabel.setBounds(1300, 300, 200, 50);
-        HPLabel.setForeground(Color.WHITE);
 
         //Temporary HP label
-        tempHPLabel = new JLabel("Temporary hit points:");
-        tempHPLabel.setFont(Constants.labels);
+        tempHPLabel = new Label("Temporary hit points:");
         tempHPLabel.setBounds(1300, 350, 200, 50);
-        tempHPLabel.setForeground(Color.WHITE);
 
         //Current HP label
-        currentHPLabel = new JLabel("Current hit points:");
-        currentHPLabel.setFont(Constants.labels);
+        currentHPLabel = new Label("Current hit points:");
         currentHPLabel.setBounds(1300, 400, 200, 50);
-        currentHPLabel.setForeground(Color.WHITE);
 
         //Inspiration label
-        inspirationLabel = new JLabel("Inspiration:");
-        inspirationLabel.setFont(Constants.labels);
+        inspirationLabel = new Label("Inspiration:");
         inspirationLabel.setBounds(1300, 450, 200, 50);
-        inspirationLabel.setForeground(Color.WHITE);
 
         //Currency labels
         //Currency label
-        currencyLabel = new JLabel("Currency");
-        currencyLabel.setFont(Constants.labels);
+        currencyLabel = new Label("Currency");
         currencyLabel.setBounds(1400, 500, 200, 50);
-        currencyLabel.setForeground(Color.WHITE);
 
         //Copper label
-        copperLabel = new JLabel("Copper:");
-        copperLabel.setFont(Constants.labels);
+        copperLabel = new Label("Copper:");
         copperLabel.setBounds(1300, 550, 200, 50);
-        copperLabel.setForeground(Color.WHITE);
 
         //Silver label
-        silverLabel = new JLabel("Silver:");
-        silverLabel.setFont(Constants.labels);
+        silverLabel = new Label("Silver:");
         silverLabel.setBounds(1300, 600, 200, 50);
-        silverLabel.setForeground(Color.WHITE);
 
         //Electrum label
-        electrumLabel = new JLabel("Electrum:");
-        electrumLabel.setFont(Constants.labels);
+        electrumLabel = new Label("Electrum:");
         electrumLabel.setBounds(1300, 650, 200, 50);
-        electrumLabel.setForeground(Color.WHITE);
 
         //Gold label
-        goldLabel = new JLabel("Gold:");
-        goldLabel.setFont(Constants.labels);
+        goldLabel = new Label("Gold:");
         goldLabel.setBounds(1300, 700, 200, 50);
-        goldLabel.setForeground(Color.WHITE);
 
         //Platinum label
-        platinumLabel = new JLabel("Platinum:");
-        platinumLabel.setFont(Constants.labels);
+        platinumLabel = new Label("Platinum:");
         platinumLabel.setBounds(1300, 750, 200, 50);
-        platinumLabel.setForeground(Color.WHITE);
 
         //Passive wisdom label
-        passiveWisdomLabel = new JLabel("Passive wisdom:");
-        passiveWisdomLabel.setFont(Constants.labels);
+        passiveWisdomLabel = new Label("Passive wisdom:");
         passiveWisdomLabel.setBounds(700, 1000, 200, 50);
-        passiveWisdomLabel.setForeground(Color.WHITE);
     }
 
     /** Contains setup for all JComboBoxes (drop down menu) on page 1 of the editor: adds options, sets font, bounds, text color */
     private void initializeComboBoxes() {
         //Alignment combo box
-        alignmentComboBox = new JComboBox<>();
+        alignmentComboBox = new ComboBox<>();
         EnumSet.allOf(Constants.Alignment.class).forEach(a -> alignmentComboBox.addItem(a));
-        alignmentComboBox.setFont(Constants.labels);
         alignmentComboBox.setBounds(175, 350, 250, 40);
-        alignmentComboBox.setForeground(Color.BLACK);
 
         //Race combo box
-        raceComboBox = new JComboBox<>();
+        raceComboBox = new ComboBox<>();
         EnumSet.allOf(Constants.Races.class).forEach(r -> raceComboBox.addItem(r));
-        raceComboBox.setFont(Constants.labels);
         raceComboBox.setBounds(175, 200, 250, 40);
-        raceComboBox.setForeground(Color.BLACK);
 
         //Class combo box
-        classComboBox = new JComboBox<>();
+        classComboBox = new ComboBox<>();
         EnumSet.allOf(Constants.Classes.class).forEach(c -> classComboBox.addItem(c));
-        classComboBox.setFont(Constants.labels);
         classComboBox.setBounds(175, 250, 250, 40);
-        classComboBox.setForeground(Color.BLACK);
 
         //Damage type combo box 1
-        damageTypesComboBox1 = new JComboBox<>();
+        damageTypesComboBox1 = new ComboBox<>();
         EnumSet.allOf(Constants.DamageTypes.class).forEach(d -> damageTypesComboBox1.addItem(d));
-        damageTypesComboBox1.setFont(Constants.labels);
         damageTypesComboBox1.setBounds(1675, 150, 200, 40);
-        damageTypesComboBox1.setForeground(Color.BLACK);
 
         //Damage type combo box 2
-        damageTypesComboBox2 = new JComboBox<>();
+        damageTypesComboBox2 = new ComboBox<>();
         EnumSet.allOf(Constants.DamageTypes.class).forEach(d -> damageTypesComboBox2.addItem(d));
-        damageTypesComboBox2.setFont(Constants.labels);
         damageTypesComboBox2.setBounds(1675, 200, 200, 40);
-        damageTypesComboBox2.setForeground(Color.BLACK);
 
         //Damage type combo box 3
-        damageTypesComboBox3 = new JComboBox<>();
+        damageTypesComboBox3 = new ComboBox<>();
         EnumSet.allOf(Constants.DamageTypes.class).forEach(d -> damageTypesComboBox3.addItem(d));
-        damageTypesComboBox3.setFont(Constants.labels);
         damageTypesComboBox3.setBounds(1675, 250, 200, 40);
-        damageTypesComboBox3.setForeground(Color.BLACK);
     }
 
     /** Contains setup for all JTextFields on page 1 of the editor: sets font and bounds. Text from deserialization is loaded in the load() method */
     private void initializeTextFields() {
         //player name text field
-        pNameField = new JTextField();
+        pNameField = new TextField();
         pNameField.setBounds(175, 100, 250, 40);
-        pNameField.setFont(Constants.labels);
 
         //Character name text field
-        cNameField = new JTextField();
+        cNameField = new TextField();
         cNameField.setBounds(175, 150, 250, 40);
-        cNameField.setFont(Constants.labels);
 
         //Level text field
-        levelField = new JTextField();
+        levelField = new TextField();
         levelField.setBounds(175, 300, 250, 40);
-        levelField.setFont(Constants.labels);
 
         //Strength text field
-        strengthField = new JTextField();
+        strengthField = new TextField();
         strengthField.setBounds(175, 450, 75, 40);
-        strengthField.setFont(Constants.labels);
 
         //Strength modifier field
-        strengthMField = new JTextField();
+        strengthMField = new TextField();
         strengthMField.setBounds(340, 450, 75, 40);
-        strengthMField.setFont(Constants.labels);
 
         //Strength saving throw field
-        strengthSTField = new JTextField();
+        strengthSTField = new TextField();
         strengthSTField.setBounds(500, 450, 75, 40);
-        strengthSTField.setFont(Constants.labels);
 
         //Dexterity text field
-        dexterityField = new JTextField();
+        dexterityField = new TextField();
         dexterityField.setBounds(175, 500, 75, 40);
-        dexterityField.setFont(Constants.labels);
 
         //Dexterity modifier field
-        dexterityMField = new JTextField();
+        dexterityMField = new TextField();
         dexterityMField.setBounds(340, 500, 75, 40);
-        dexterityMField.setFont(Constants.labels);
 
         //Dexterity saving throw field
-        dexteritySTField = new JTextField();
+        dexteritySTField = new TextField();
         dexteritySTField.setBounds(500, 500, 75, 40);
-        dexteritySTField.setFont(Constants.labels);
 
         //Constitution text field
-        constitutionField = new JTextField();
+        constitutionField = new TextField();
         constitutionField.setBounds(175, 550, 75, 40);
-        constitutionField.setFont(Constants.labels);
 
         //Constitution modifier field
-        constitutionMField = new JTextField();
+        constitutionMField = new TextField();
         constitutionMField.setBounds(340, 550, 75, 40);
-        constitutionMField.setFont(Constants.labels);
 
         //Constitution saving throw field
-        constitutionSTField = new JTextField();
+        constitutionSTField = new TextField();
         constitutionSTField.setBounds(500, 550, 75, 40);
-        constitutionSTField.setFont(Constants.labels);
 
         //Intelligence text field
-        intelligenceField = new JTextField();
+        intelligenceField = new TextField();
         intelligenceField.setBounds(175, 600, 75, 40);
-        intelligenceField.setFont(Constants.labels);
 
         //Intelligence modifier field
-        intelligenceMField = new JTextField();
+        intelligenceMField = new TextField();
         intelligenceMField.setBounds(340, 600, 75, 40);
-        intelligenceMField.setFont(Constants.labels);
 
         //Intelligence saving throw field
-        intelligenceSTField = new JTextField();
+        intelligenceSTField = new TextField();
         intelligenceSTField.setBounds(500, 600, 75, 40);
-        intelligenceSTField.setFont(Constants.labels);
 
         //Charisma text field
-        charismaField = new JTextField();
+        charismaField = new TextField();
         charismaField.setBounds(175, 650, 75, 40);
-        charismaField.setFont(Constants.labels);
 
         //Charisma modifier field
-        charismaMField = new JTextField();
+        charismaMField = new TextField();
         charismaMField.setBounds(340, 650, 75, 40);
-        charismaMField.setFont(Constants.labels);
 
         //Charisma saving throw field
-        charismaSTField = new JTextField();
+        charismaSTField = new TextField();
         charismaSTField.setBounds(500, 650, 75, 40);
-        charismaSTField.setFont(Constants.labels);
 
         //Wisdom text field
-        wisdomField = new JTextField();
+        wisdomField = new TextField();
         wisdomField.setBounds(175, 700, 75, 40);
-        wisdomField.setFont(Constants.labels);
 
         //Wisdom modifier field
-        wisdomMField = new JTextField();
+        wisdomMField = new TextField();
         wisdomMField.setBounds(340, 700, 75, 40);
-        wisdomMField.setFont(Constants.labels);
 
         //Wisdom saving throw field
-        wisdomSTField = new JTextField();
+        wisdomSTField = new TextField();
         wisdomSTField.setBounds(500, 700, 75, 40);
-        wisdomSTField.setFont(Constants.labels);
 
         //Experience points field
-        experienceField = new JTextField();
+        experienceField = new TextField();
         experienceField.setBounds(175, 750, 75, 40);
-        experienceField.setFont(Constants.labels);
 
         //Proficiency field
-        proficiencyField = new JTextField();
+        proficiencyField = new TextField();
         proficiencyField.setBounds(175, 800, 75, 40);
-        proficiencyField.setFont(Constants.labels);
 
         //Armor class field
-        armorClassField = new JTextField();
+        armorClassField = new TextField();
         armorClassField.setBounds(175, 850, 75, 40);
-        armorClassField.setFont(Constants.labels);
 
         //Difficulty class field
-        difficultyClassField = new JTextField();
+        difficultyClassField = new TextField();
         difficultyClassField.setBounds(175, 900, 75, 40);
-        difficultyClassField.setFont(Constants.labels);
 
         //Initiative field
-        initiativeField = new JTextField();
+        initiativeField = new TextField();
         initiativeField.setBounds(175, 950, 75, 40);
-        initiativeField.setFont(Constants.labels);
 
         //Speed field
-        speedField = new JTextField();
+        speedField = new TextField();
         speedField.setBounds(175, 1000, 75, 40);
-        speedField.setFont(Constants.labels);
 
         //Skill text fields
         //Acrobatics filed
-        acrobaticsField = new JTextField();
+        acrobaticsField = new TextField();
         acrobaticsField.setBounds(875, 100, 75, 40);
-        acrobaticsField.setFont(Constants.labels);
 
         //Animal handling field
-        animalHandlingField = new JTextField();
+        animalHandlingField = new TextField();
         animalHandlingField.setBounds(875, 150, 75, 40);
-        animalHandlingField.setFont(Constants.labels);
 
         //Arcana field
-        arcanaField = new JTextField();
+        arcanaField = new TextField();
         arcanaField.setBounds(875, 200, 75, 40);
-        arcanaField.setFont(Constants.labels);
 
         //Athletics field
-        athleticsField = new JTextField();
+        athleticsField = new TextField();
         athleticsField.setBounds(875, 250, 75, 40);
-        athleticsField.setFont(Constants.labels);
 
         //History field
-        historyField = new JTextField();
+        historyField = new TextField();
         historyField.setBounds(875, 300, 75, 40);
-        historyField.setFont(Constants.labels);
 
         //Deception field
-        deceptionField = new JTextField();
+        deceptionField = new TextField();
         deceptionField.setBounds(875, 350, 75, 40);
-        deceptionField.setFont(Constants.labels);
 
         //Insight field
-        insightField = new JTextField();
+        insightField = new TextField();
         insightField.setBounds(875, 400, 75, 40);
-        insightField.setFont(Constants.labels);
 
         //Intimidation field
-        intimidationField = new JTextField();
+        intimidationField = new TextField();
         intimidationField.setBounds(875, 450, 75, 40);
-        intimidationField.setFont(Constants.labels);
 
         //Investigation field
-        investigationField = new JTextField();
+        investigationField = new TextField();
         investigationField.setBounds(875, 500, 75, 40);
-        investigationField.setFont(Constants.labels);
 
         //Medicine field
-        medicineField = new JTextField();
+        medicineField = new TextField();
         medicineField.setBounds(875, 550, 75, 40);
-        medicineField.setFont(Constants.labels);
 
         //Nature field
-        natureField = new JTextField();
+        natureField = new TextField();
         natureField.setBounds(875, 600, 75, 40);
-        natureField.setFont(Constants.labels);
 
         //Perception field
-        perceptionField = new JTextField();
+        perceptionField = new TextField();
         perceptionField.setBounds(875, 650, 75, 40);
-        perceptionField.setFont(Constants.labels);
 
         //Performance field
-        performanceField = new JTextField();
+        performanceField = new TextField();
         performanceField.setBounds(875, 700, 75, 40);
-        performanceField.setFont(Constants.labels);
 
         //Persuasion field
-        persuasionField = new JTextField();
+        persuasionField = new TextField();
         persuasionField.setBounds(875, 750, 75, 40);
-        persuasionField.setFont(Constants.labels);
 
         //Religion field
-        religionField = new JTextField();
+        religionField = new TextField();
         religionField.setBounds(875, 800, 75, 40);
-        religionField.setFont(Constants.labels);
 
         //Sleight of hand field
-        sleightOfHandField = new JTextField();
+        sleightOfHandField = new TextField();
         sleightOfHandField.setBounds(875, 850, 75, 40);
-        sleightOfHandField.setFont(Constants.labels);
 
         //Stealth field
-        stealthField = new JTextField();
+        stealthField = new TextField();
         stealthField.setBounds(875, 900, 75, 40);
-        stealthField.setFont(Constants.labels);
 
         //Survival field
-        survivalField = new JTextField();
+        survivalField = new TextField();
         survivalField.setBounds(875, 950, 75, 40);
-        survivalField.setFont(Constants.labels);
 
         //Passive wisdom field
-        passiveWisdomField = new JTextField();
+        passiveWisdomField = new TextField();
         passiveWisdomField.setBounds(875, 1000, 75, 40);
-        passiveWisdomField.setFont(Constants.labels);
 
         //Attack 1 field
-        attack1Field = new JTextField();
+        attack1Field = new TextField();
         attack1Field.setBounds(1300, 150, 225, 40);
-        attack1Field.setFont(Constants.labels);
 
         //Attack 1 bonus field
-        attack1BonusField = new JTextField();
+        attack1BonusField = new TextField();
         attack1BonusField.setBounds(1550, 150, 75, 40);
-        attack1BonusField.setFont(Constants.labels);
 
         //Attack 2 field
-        attack2Field = new JTextField();
+        attack2Field = new TextField();
         attack2Field.setBounds(1300, 200, 225, 40);
-        attack2Field.setFont(Constants.labels);
 
         //Attack 2 bonus field
-        attack2BonusField = new JTextField();
+        attack2BonusField = new TextField();
         attack2BonusField.setBounds(1550, 200, 75, 40);
-        attack2BonusField.setFont(Constants.labels);
 
         //Attack 3 field
-        attack3Field = new JTextField();
+        attack3Field = new TextField();
         attack3Field.setBounds(1300, 250, 225, 40);
-        attack3Field.setFont(Constants.labels);
 
         //Attack 3 bonus field
-        attack3BonusField = new JTextField();
+        attack3BonusField = new TextField();
         attack3BonusField.setBounds(1550, 250, 75, 40);
-        attack3BonusField.setFont(Constants.labels);
 
         //HP Field
-        HPField = new JTextField();
+        HPField = new TextField();
         HPField.setBounds(1550, 300, 75, 40);
-        HPField.setFont(Constants.labels);
 
         //Temporary HP field
-        tempHPField = new JTextField();
+        tempHPField = new TextField();
         tempHPField.setBounds(1550, 350, 75, 40);
-        tempHPField.setFont(Constants.labels);
 
         //Current HP field
-        currentHPField = new JTextField();
+        currentHPField = new TextField();
         currentHPField.setBounds(1550, 400, 75, 40);
-        currentHPField.setFont(Constants.labels);
 
         //Currency fields
         //Copper field
-        copperField = new JTextField();
+        copperField = new TextField();
         copperField.setBounds(1550, 550, 75, 40);
-        copperField.setFont(Constants.labels);
 
         //Silver field
-        silverField = new JTextField();
+        silverField = new TextField();
         silverField.setBounds(1550, 600, 75, 40);
-        silverField.setFont(Constants.labels);
 
         //Electrum field
-        electrumField = new JTextField();
+        electrumField = new TextField();
         electrumField.setBounds(1550, 650, 75, 40);
-        electrumField.setFont(Constants.labels);
 
         //Gold field
-        goldField = new JTextField();
+        goldField = new TextField();
         goldField.setBounds(1550, 700, 75, 40);
-        goldField.setFont(Constants.labels);
 
         //Platinum field
-        platinumField = new JTextField();
+        platinumField = new TextField();
         platinumField.setBounds(1550, 750, 75, 40);
-        platinumField.setFont(Constants.labels);
     }
 
     /** Contains setup for the JRadioButton on page 1 of the editor: sets bounds and configures background */
@@ -886,30 +704,27 @@ public class Sheet1Panel extends JPanel {
 
     /** Contains setup for all JButtons on page 1 of the editor: sets bounds, text, font, and action listeners */
     private void initializeButtons() {
-        nextPage = new JButton("Next page");
-        nextPage.setFont(Constants.buttons);
+        nextPage = new Button("Next page");
         nextPage.setBounds(1720, 0, 200, 75);
-        nextPage.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                MainPanel.s2p.setVisible(true);
-            }
+        nextPage.addActionListener(e -> {
+            setVisible(false);
+            MainPanel.s2p.setVisible(true);
         });
 
         //Save button initialization
+        saveButton = new Button("Save and exit");
         saveButton.setBounds(0, 0, 200, 75);
-        saveButton.setFont(Constants.buttons);
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                save();
-                MainPanel.s2p.save();
-                try { MainPanel.serialize();}
-                catch (Exception ex) { ex.printStackTrace(); }
-                System.exit(0);
-            }
+        saveButton.addActionListener(e -> {
+            save();
+            MainPanel.s2p.save();
+            try { MainPanel.serialize();}
+            catch (Exception ex) { ex.printStackTrace(); }
+            System.exit(0);
         });
+        //TODO: make save and exit buttons separate
+
+
+        //TODO: add navigation to dice roller menu
     }
 
     /** Adds all components to the panel */
