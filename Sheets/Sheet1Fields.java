@@ -1,6 +1,7 @@
-package com.dndcharacters.s1project;
+package com.dndcharacters.s1project.Sheets;
 
-import com.dndcharacters.s1project.GameValues.*;
+import com.dndcharacters.s1project.Constants;
+import com.dndcharacters.s1project.Records;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,14 +31,14 @@ public class Sheet1Fields implements Serializable {
      * Order: [strength, dexterity, constitution, intelligence, wisdom, charisma]
      * Also contains values for modifiers and saving throws
      */
-    public ArrayList<Ability> abilities;
+    public ArrayList<Records.Ability> abilities;
 
     /** ArrayList of Skills
      * Order: acrobatics, animal handling, arcana, athletics, deception,
      * history, insight, intimidation, investigation, medicine, nature,
      * perception, performance, persuasion, religion, sleight of hand,
      * stealth, survival */
-    public ArrayList<Skill> skills;
+    public ArrayList<Records.Skill> skills;
 
 
     /** Character inspiration */
@@ -65,12 +66,12 @@ public class Sheet1Fields implements Serializable {
     /** ArrayList of character's attacks
      * Ordered by the list on Sheet1Panel
      */
-    public ArrayList<Attack> attacks;
+    public ArrayList<Records.Attack> attacks;
 
     /** ArrayList of character's currency
      * Order: [copper, silver, electrum, gold, platinum]
      */
-    public ArrayList<Currency> currency;
+    public ArrayList<Records.Currency> currency;
 
     /** Constructor, called in sheet: sets up all fields as blank */
     public Sheet1Fields() {

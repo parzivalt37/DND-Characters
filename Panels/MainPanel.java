@@ -1,23 +1,22 @@
 package com.dndcharacters.s1project.Panels;
 
 import com.dndcharacters.s1project.*;
+import com.dndcharacters.s1project.Sheets.Sheet;
 
 import java.awt.Graphics;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 
-import java.io.IOException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**MainPanel: extends JPanel and shows the screen with the first 2 buttons; represents the first panel to be displayed on program startup
  * Also contains serialization and deserialization functions
@@ -79,7 +78,7 @@ public class MainPanel extends JPanel {
     }
 
     /** Serialization method: writes 'sheet' to file */
-    public static void serialize() throws IOException {
+    public static void serialize() {
         try {
             FileOutputStream fileOut = new FileOutputStream(f);
             ObjectOutputStream sheetOut = new ObjectOutputStream(fileOut);
@@ -95,7 +94,7 @@ public class MainPanel extends JPanel {
     }
 
     /** Deserialization method: loads serialized object from file into 'sheet' object */
-    private static void deserialize() throws IOException, ClassNotFoundException {
+    private static void deserialize() {
         try {
             FileInputStream fileIn = new FileInputStream(f);
             ObjectInputStream sheetIn = new ObjectInputStream(fileIn);
@@ -123,31 +122,25 @@ public class MainPanel extends JPanel {
         loadFile.setFont(Constants.buttons);
         Sheet1Panel.saveButton.setFont(Constants.labels);
         //ActionListeners
-        newFile.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                sheet = new Sheet();
-                setVisible(false);
-                s1p = new Sheet1Panel();
-                s2p = new Sheet2Panel();
-                s2p.setVisible(false);
-            }
+        newFile.addActionListener(e -> {
+            sheet = new Sheet();
+            setVisible(false);
+            s1p = new Sheet1Panel();
+            s2p = new Sheet2Panel();
+            s2p.setVisible(false);
         });
-        loadFile.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    deserialize();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                setVisible(false);
-                s1p = new Sheet1Panel();
-                s1p.load();
-                s2p = new Sheet2Panel();
-                s2p.setVisible(false);
-                s2p.load();
+        loadFile.addActionListener(e -> {
+            try {
+                deserialize();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
+            setVisible(false);
+            s1p = new Sheet1Panel();
+            s1p.load();
+            s2p = new Sheet2Panel();
+            s2p.setVisible(false);
+            s2p.load();
         });
     }
 

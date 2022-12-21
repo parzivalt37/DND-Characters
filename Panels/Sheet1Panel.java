@@ -1,7 +1,6 @@
 package com.dndcharacters.s1project.Panels;
 
 import com.dndcharacters.s1project.*;
-import com.dndcharacters.s1project.GameValues.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -1047,41 +1046,41 @@ public class Sheet1Panel extends JPanel {
         MainPanel.sheet.s1.setcName(cNameField.getText());
         MainPanel.sheet.s1.setRace((Constants.Races) raceComboBox.getSelectedItem());
         MainPanel.sheet.s1.setAlignment((Constants.Alignment) alignmentComboBox.getSelectedItem());
-        MainPanel.sheet.s1.abilities.add(0, new Ability(Constants.Ability.Strength, strengthField.getText(), strengthMField.getText(), strengthSTField.getText()));
-        MainPanel.sheet.s1.abilities.add(1, new Ability(Constants.Ability.Dexterity, dexterityField.getText(), dexterityMField.getText(), dexteritySTField.getText()));
-        MainPanel.sheet.s1.abilities.add(2, new Ability(Constants.Ability.Constitution, constitutionField.getText(), constitutionMField.getText(), constitutionSTField.getText()));
-        MainPanel.sheet.s1.abilities.add(3, new Ability(Constants.Ability.Intelligence, intelligenceField.getText(), intelligenceMField.getText(), intelligenceSTField.getText()));
-        MainPanel.sheet.s1.abilities.add(4, new Ability(Constants.Ability.Charisma, charismaField.getText(), charismaMField.getText(), charismaSTField.getText()));
-        MainPanel.sheet.s1.abilities.add(5, new Ability(Constants.Ability.Wisdom, wisdomField.getText(), wisdomMField.getText(), wisdomSTField.getText()));
+        MainPanel.sheet.s1.abilities.add(0, new Records.Ability(Constants.Ability.Strength, strengthField.getText(), strengthMField.getText(), strengthSTField.getText()));
+        MainPanel.sheet.s1.abilities.add(1, new Records.Ability(Constants.Ability.Dexterity, dexterityField.getText(), dexterityMField.getText(), dexteritySTField.getText()));
+        MainPanel.sheet.s1.abilities.add(2, new Records.Ability(Constants.Ability.Constitution, constitutionField.getText(), constitutionMField.getText(), constitutionSTField.getText()));
+        MainPanel.sheet.s1.abilities.add(3, new Records.Ability(Constants.Ability.Intelligence, intelligenceField.getText(), intelligenceMField.getText(), intelligenceSTField.getText()));
+        MainPanel.sheet.s1.abilities.add(4, new Records.Ability(Constants.Ability.Charisma, charismaField.getText(), charismaMField.getText(), charismaSTField.getText()));
+        MainPanel.sheet.s1.abilities.add(5, new Records.Ability(Constants.Ability.Wisdom, wisdomField.getText(), wisdomMField.getText(), wisdomSTField.getText()));
         while (MainPanel.sheet.s1.abilities.size() > 6) {
             MainPanel.sheet.s1.abilities.remove(MainPanel.sheet.s1.abilities.size() - 1);
         }
 
-        MainPanel.sheet.s1.skills.add(0, new Skill(Constants.Skills.Acrobatics, acrobaticsField.getText()));
-        MainPanel.sheet.s1.skills.add(1, new Skill(Constants.Skills.AnimalHandling, animalHandlingField.getText()));
-        MainPanel.sheet.s1.skills.add(2, new Skill(Constants.Skills.Arcana, arcanaField.getText()));
-        MainPanel.sheet.s1.skills.add(3, new Skill(Constants.Skills.Athletics, athleticsField.getText()));
-        MainPanel.sheet.s1.skills.add(4, new Skill(Constants.Skills.History, historyField.getText()));
-        MainPanel.sheet.s1.skills.add(5, new Skill(Constants.Skills.Deception, deceptionField.getText()));
-        MainPanel.sheet.s1.skills.add(6, new Skill(Constants.Skills.Insight, insightField.getText()));
-        MainPanel.sheet.s1.skills.add(7, new Skill(Constants.Skills.Intimidation, intimidationField.getText()));
-        MainPanel.sheet.s1.skills.add(8, new Skill(Constants.Skills.Investigation, investigationField.getText()));
-        MainPanel.sheet.s1.skills.add(9, new Skill(Constants.Skills.Medicine, medicineField.getText()));
-        MainPanel.sheet.s1.skills.add(10, new Skill(Constants.Skills.Nature, natureField.getText()));
-        MainPanel.sheet.s1.skills.add(11, new Skill(Constants.Skills.Perception, perceptionField.getText()));
-        MainPanel.sheet.s1.skills.add(12, new Skill(Constants.Skills.Performance, performanceField.getText()));
-        MainPanel.sheet.s1.skills.add(13, new Skill(Constants.Skills.Persuasion, persuasionField.getText()));
-        MainPanel.sheet.s1.skills.add(14, new Skill(Constants.Skills.Religion, religionField.getText()));
-        MainPanel.sheet.s1.skills.add(15, new Skill(Constants.Skills.SleightOfHand, sleightOfHandField.getText()));
-        MainPanel.sheet.s1.skills.add(16, new Skill(Constants.Skills.Stealth, stealthField.getText()));
-        MainPanel.sheet.s1.skills.add(17, new Skill(Constants.Skills.Survival, survivalField.getText()));
+        MainPanel.sheet.s1.skills.add(0, new Records.Skill(acrobaticsField.getText()));
+        MainPanel.sheet.s1.skills.add(1, new Records.Skill(animalHandlingField.getText()));
+        MainPanel.sheet.s1.skills.add(2, new Records.Skill(arcanaField.getText()));
+        MainPanel.sheet.s1.skills.add(3, new Records.Skill(athleticsField.getText()));
+        MainPanel.sheet.s1.skills.add(4, new Records.Skill(historyField.getText()));
+        MainPanel.sheet.s1.skills.add(5, new Records.Skill(deceptionField.getText()));
+        MainPanel.sheet.s1.skills.add(6, new Records.Skill(insightField.getText()));
+        MainPanel.sheet.s1.skills.add(7, new Records.Skill(intimidationField.getText()));
+        MainPanel.sheet.s1.skills.add(8, new Records.Skill(investigationField.getText()));
+        MainPanel.sheet.s1.skills.add(9, new Records.Skill(medicineField.getText()));
+        MainPanel.sheet.s1.skills.add(10, new Records.Skill(natureField.getText()));
+        MainPanel.sheet.s1.skills.add(11, new Records.Skill(perceptionField.getText()));
+        MainPanel.sheet.s1.skills.add(12, new Records.Skill(performanceField.getText()));
+        MainPanel.sheet.s1.skills.add(13, new Records.Skill(persuasionField.getText()));
+        MainPanel.sheet.s1.skills.add(14, new Records.Skill(religionField.getText()));
+        MainPanel.sheet.s1.skills.add(15, new Records.Skill(sleightOfHandField.getText()));
+        MainPanel.sheet.s1.skills.add(16, new Records.Skill(stealthField.getText()));
+        MainPanel.sheet.s1.skills.add(17, new Records.Skill(survivalField.getText()));
         while (MainPanel.sheet.s1.skills.size() > 18) {
             MainPanel.sheet.s1.skills.remove(MainPanel.sheet.s1.skills.size() - 1);
         }
 
-        MainPanel.sheet.s1.attacks.add(0, new Attack(attack1Field.getText(), attack1BonusField.getText(), (Constants.DamageTypes) damageTypesComboBox1.getSelectedItem()));
-        MainPanel.sheet.s1.attacks.add(1, new Attack(attack2Field.getText(), attack2BonusField.getText(), (Constants.DamageTypes) damageTypesComboBox2.getSelectedItem()));
-        MainPanel.sheet.s1.attacks.add(2, new Attack(attack3Field.getText(), attack3BonusField.getText(), (Constants.DamageTypes) damageTypesComboBox3.getSelectedItem()));
+        MainPanel.sheet.s1.attacks.add(0, new Records.Attack(attack1Field.getText(), attack1BonusField.getText(), (Constants.DamageTypes) damageTypesComboBox1.getSelectedItem()));
+        MainPanel.sheet.s1.attacks.add(1, new Records.Attack(attack2Field.getText(), attack2BonusField.getText(), (Constants.DamageTypes) damageTypesComboBox2.getSelectedItem()));
+        MainPanel.sheet.s1.attacks.add(2, new Records.Attack(attack3Field.getText(), attack3BonusField.getText(), (Constants.DamageTypes) damageTypesComboBox3.getSelectedItem()));
         while(MainPanel.sheet.s1.attacks.size() > 3) {
             MainPanel.sheet.s1.attacks.remove(MainPanel.sheet.s1.attacks.size() - 1);
         }
@@ -1093,11 +1092,11 @@ public class Sheet1Panel extends JPanel {
             MainPanel.sheet.s1.hp.remove(MainPanel.sheet.s1.hp.size() - 1);
         }
 
-        MainPanel.sheet.s1.currency.add(0, new Currency(Constants.CurrencyType.Copper, copperField.getText()));
-        MainPanel.sheet.s1.currency.add(1, new Currency(Constants.CurrencyType.Silver, silverField.getText()));
-        MainPanel.sheet.s1.currency.add(2, new Currency(Constants.CurrencyType.Electrum, electrumField.getText()));
-        MainPanel.sheet.s1.currency.add(3, new Currency(Constants.CurrencyType.Gold, goldField.getText()));
-        MainPanel.sheet.s1.currency.add(4, new Currency(Constants.CurrencyType.Platinum, platinumField.getText()));
+        MainPanel.sheet.s1.currency.add(0, new Records.Currency(copperField.getText()));
+        MainPanel.sheet.s1.currency.add(1, new Records.Currency(silverField.getText()));
+        MainPanel.sheet.s1.currency.add(2, new Records.Currency(electrumField.getText()));
+        MainPanel.sheet.s1.currency.add(3, new Records.Currency(goldField.getText()));
+        MainPanel.sheet.s1.currency.add(4, new Records.Currency(platinumField.getText()));
         while(MainPanel.sheet.s1.currency.size() > 5) {
             MainPanel.sheet.s1.currency.remove(MainPanel.sheet.s1.currency.size() - 1);
         }
@@ -1118,37 +1117,37 @@ public class Sheet1Panel extends JPanel {
         raceComboBox.setSelectedItem(MainPanel.sheet.s1.getRace());
         classComboBox.setSelectedItem(MainPanel.sheet.s1.getClasses());
         alignmentComboBox.setSelectedItem(MainPanel.sheet.s1.getAlignment());
-        damageTypesComboBox1.setSelectedItem((Constants.DamageTypes) MainPanel.sheet.s1.attacks.get(0).getDamageType());
-        damageTypesComboBox2.setSelectedItem(MainPanel.sheet.s1.attacks.get(1).getDamageType());
-        damageTypesComboBox3.setSelectedItem(MainPanel.sheet.s1.attacks.get(2).getDamageType());
+        damageTypesComboBox1.setSelectedItem(MainPanel.sheet.s1.attacks.get(0).type());
+        damageTypesComboBox2.setSelectedItem(MainPanel.sheet.s1.attacks.get(1).type());
+        damageTypesComboBox3.setSelectedItem(MainPanel.sheet.s1.attacks.get(2).type());
 
         pNameField.setText(MainPanel.sheet.s1.getpName());
         cNameField.setText(MainPanel.sheet.s1.getcName());
         levelField.setText(MainPanel.sheet.s1.getLevel());
 
-        strengthField.setText(MainPanel.sheet.s1.abilities.get(0).getAbilityValue());
-        strengthMField.setText(MainPanel.sheet.s1.abilities.get(0).getModifierValue());
-        strengthSTField.setText(MainPanel.sheet.s1.abilities.get(0).getSavingThrowValue());
+        strengthField.setText(MainPanel.sheet.s1.abilities.get(0).abilityValue());
+        strengthMField.setText(MainPanel.sheet.s1.abilities.get(0).modifierValue());
+        strengthSTField.setText(MainPanel.sheet.s1.abilities.get(0).savingThrowValue());
 
-        dexterityField.setText(MainPanel.sheet.s1.abilities.get(1).getAbilityValue());
-        dexterityMField.setText(MainPanel.sheet.s1.abilities.get(1).getModifierValue());
-        dexteritySTField.setText(MainPanel.sheet.s1.abilities.get(1).getSavingThrowValue());
+        dexterityField.setText(MainPanel.sheet.s1.abilities.get(1).abilityValue());
+        dexterityMField.setText(MainPanel.sheet.s1.abilities.get(1).modifierValue());
+        dexteritySTField.setText(MainPanel.sheet.s1.abilities.get(1).savingThrowValue());
 
-        constitutionField.setText(MainPanel.sheet.s1.abilities.get(2).getAbilityValue());
-        constitutionMField.setText(MainPanel.sheet.s1.abilities.get(2).getModifierValue());
-        constitutionSTField.setText(MainPanel.sheet.s1.abilities.get(2).getSavingThrowValue());
+        constitutionField.setText(MainPanel.sheet.s1.abilities.get(2).abilityValue());
+        constitutionMField.setText(MainPanel.sheet.s1.abilities.get(2).modifierValue());
+        constitutionSTField.setText(MainPanel.sheet.s1.abilities.get(2).savingThrowValue());
 
-        intelligenceField.setText(MainPanel.sheet.s1.abilities.get(3).getAbilityValue());
-        intelligenceMField.setText(MainPanel.sheet.s1.abilities.get(3).getModifierValue());
-        intelligenceSTField.setText(MainPanel.sheet.s1.abilities.get(3).getSavingThrowValue());
+        intelligenceField.setText(MainPanel.sheet.s1.abilities.get(3).abilityValue());
+        intelligenceMField.setText(MainPanel.sheet.s1.abilities.get(3).modifierValue());
+        intelligenceSTField.setText(MainPanel.sheet.s1.abilities.get(3).savingThrowValue());
 
-        charismaField.setText(MainPanel.sheet.s1.abilities.get(4).getAbilityValue());
-        charismaMField.setText(MainPanel.sheet.s1.abilities.get(4).getModifierValue());
-        charismaSTField.setText(MainPanel.sheet.s1.abilities.get(4).getSavingThrowValue());
+        charismaField.setText(MainPanel.sheet.s1.abilities.get(4).abilityValue());
+        charismaMField.setText(MainPanel.sheet.s1.abilities.get(4).modifierValue());
+        charismaSTField.setText(MainPanel.sheet.s1.abilities.get(4).savingThrowValue());
 
-        wisdomField.setText(MainPanel.sheet.s1.abilities.get(5).getAbilityValue());
-        wisdomMField.setText(MainPanel.sheet.s1.abilities.get(5).getModifierValue());
-        wisdomSTField.setText(MainPanel.sheet.s1.abilities.get(5).getSavingThrowValue());
+        wisdomField.setText(MainPanel.sheet.s1.abilities.get(5).abilityValue());
+        wisdomMField.setText(MainPanel.sheet.s1.abilities.get(5).modifierValue());
+        wisdomSTField.setText(MainPanel.sheet.s1.abilities.get(5).savingThrowValue());
 
         proficiencyField.setText(MainPanel.sheet.s1.getProficiencybonus());
         armorClassField.setText(MainPanel.sheet.s1.getArmorclass());
@@ -1156,41 +1155,41 @@ public class Sheet1Panel extends JPanel {
         initiativeField.setText(MainPanel.sheet.s1.getInitiative());
         speedField.setText(MainPanel.sheet.s1.getSpeed());
 
-        acrobaticsField.setText(MainPanel.sheet.s1.skills.get(0).getSkillValue());
-        animalHandlingField.setText(MainPanel.sheet.s1.skills.get(1).getSkillValue());
-        arcanaField.setText(MainPanel.sheet.s1.skills.get(2).getSkillValue());
-        athleticsField.setText(MainPanel.sheet.s1.skills.get(3).getSkillValue());
-        historyField.setText(MainPanel.sheet.s1.skills.get(4).getSkillValue());
-        deceptionField.setText(MainPanel.sheet.s1.skills.get(5).getSkillValue());
-        insightField.setText(MainPanel.sheet.s1.skills.get(6).getSkillValue());
-        intimidationField.setText(MainPanel.sheet.s1.skills.get(7).getSkillValue());
-        investigationField.setText(MainPanel.sheet.s1.skills.get(8).getSkillValue());
-        medicineField.setText(MainPanel.sheet.s1.skills.get(9).getSkillValue());
-        natureField.setText(MainPanel.sheet.s1.skills.get(10).getSkillValue());
-        perceptionField.setText(MainPanel.sheet.s1.skills.get(11).getSkillValue());
-        performanceField.setText(MainPanel.sheet.s1.skills.get(12).getSkillValue());
-        persuasionField.setText(MainPanel.sheet.s1.skills.get(13).getSkillValue());
-        religionField.setText(MainPanel.sheet.s1.skills.get(14).getSkillValue());
-        sleightOfHandField.setText(MainPanel.sheet.s1.skills.get(15).getSkillValue());
-        stealthField.setText(MainPanel.sheet.s1.skills.get(16).getSkillValue());
-        survivalField.setText(MainPanel.sheet.s1.skills.get(17).getSkillValue());
+        acrobaticsField.setText(MainPanel.sheet.s1.skills.get(0).skillValue());
+        animalHandlingField.setText(MainPanel.sheet.s1.skills.get(1).skillValue());
+        arcanaField.setText(MainPanel.sheet.s1.skills.get(2).skillValue());
+        athleticsField.setText(MainPanel.sheet.s1.skills.get(3).skillValue());
+        historyField.setText(MainPanel.sheet.s1.skills.get(4).skillValue());
+        deceptionField.setText(MainPanel.sheet.s1.skills.get(5).skillValue());
+        insightField.setText(MainPanel.sheet.s1.skills.get(6).skillValue());
+        intimidationField.setText(MainPanel.sheet.s1.skills.get(7).skillValue());
+        investigationField.setText(MainPanel.sheet.s1.skills.get(8).skillValue());
+        medicineField.setText(MainPanel.sheet.s1.skills.get(9).skillValue());
+        natureField.setText(MainPanel.sheet.s1.skills.get(10).skillValue());
+        perceptionField.setText(MainPanel.sheet.s1.skills.get(11).skillValue());
+        performanceField.setText(MainPanel.sheet.s1.skills.get(12).skillValue());
+        persuasionField.setText(MainPanel.sheet.s1.skills.get(13).skillValue());
+        religionField.setText(MainPanel.sheet.s1.skills.get(14).skillValue());
+        sleightOfHandField.setText(MainPanel.sheet.s1.skills.get(15).skillValue());
+        stealthField.setText(MainPanel.sheet.s1.skills.get(16).skillValue());
+        survivalField.setText(MainPanel.sheet.s1.skills.get(17).skillValue());
 
-        attack1Field.setText(MainPanel.sheet.s1.attacks.get(0).getAttackName());
-        attack2Field.setText(MainPanel.sheet.s1.attacks.get(1).getAttackName());
-        attack3Field.setText(MainPanel.sheet.s1.attacks.get(2).getAttackName());
-        attack1BonusField.setText(MainPanel.sheet.s1.attacks.get(0).getAtkBonus());
-        attack2BonusField.setText(MainPanel.sheet.s1.attacks.get(1).getAtkBonus());
-        attack3BonusField.setText(MainPanel.sheet.s1.attacks.get(2).getAtkBonus());
+        attack1Field.setText(MainPanel.sheet.s1.attacks.get(0).attackName());
+        attack2Field.setText(MainPanel.sheet.s1.attacks.get(1).attackName());
+        attack3Field.setText(MainPanel.sheet.s1.attacks.get(2).attackName());
+        attack1BonusField.setText(MainPanel.sheet.s1.attacks.get(0).attackBonus());
+        attack2BonusField.setText(MainPanel.sheet.s1.attacks.get(1).attackBonus());
+        attack3BonusField.setText(MainPanel.sheet.s1.attacks.get(2).attackBonus());
 
         currentHPField.setText(MainPanel.sheet.s1.hp.get(0));
         HPField.setText(MainPanel.sheet.s1.hp.get(1));
         tempHPField.setText(MainPanel.sheet.s1.hp.get(2));
 
-        copperField.setText(MainPanel.sheet.s1.currency.get(0).getValue());
-        silverField.setText(MainPanel.sheet.s1.currency.get(1).getValue());
-        electrumField.setText(MainPanel.sheet.s1.currency.get(2).getValue());
-        goldField.setText(MainPanel.sheet.s1.currency.get(3).getValue());
-        platinumField.setText(MainPanel.sheet.s1.currency.get(4).getValue());
+        copperField.setText(MainPanel.sheet.s1.currency.get(0).currencyValue());
+        silverField.setText(MainPanel.sheet.s1.currency.get(1).currencyValue());
+        electrumField.setText(MainPanel.sheet.s1.currency.get(2).currencyValue());
+        goldField.setText(MainPanel.sheet.s1.currency.get(3).currencyValue());
+        platinumField.setText(MainPanel.sheet.s1.currency.get(4).currencyValue());
 
         passiveWisdomField.setText(MainPanel.sheet.s1.getPassiveWisdom());
         inspirationRadioButton.setSelected(MainPanel.sheet.s1.isInspiration());

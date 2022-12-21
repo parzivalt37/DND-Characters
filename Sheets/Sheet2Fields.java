@@ -1,4 +1,4 @@
-package com.dndcharacters.s1project;
+package com.dndcharacters.s1project.Sheets;
 
 import java.io.Serializable;
 
