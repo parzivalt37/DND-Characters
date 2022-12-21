@@ -3,6 +3,7 @@ package com.dndcharacters.s1project;
 import java.awt.Font;
 
 /** Class containing all fundamental constants of the program e.g. fonts, enums with set game types, etc. */
+@SuppressWarnings("unused")
 public class Constants {
     /** Font object for labels */
     public static Font labels = new Font("Serif", Font.BOLD, 20);
