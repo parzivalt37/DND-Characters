@@ -11,4 +11,5 @@ public class Label extends JLabel {
         setFont(Constants.labels);
         setForeground(Color.WHITE);
     }
+
 }
