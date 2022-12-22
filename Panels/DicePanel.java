@@ -28,8 +28,10 @@ public class DicePanel extends JPanel {
     private static DiceLabel dice9Label;
     private static DiceLabel dice10Label;
     private static DiceLabel sumLabel;
+    //error labels
     private static ErrorLabel emptyErrorLabel;
-    private static ErrorLabel inputErrorLabel;
+    private static ErrorLabel sidesErrorLabel;
+    private static ErrorLabel quantityErrorLabel;
     //TextField
     private static TextArea entryField;
     //Buttons
@@ -78,6 +80,7 @@ public class DicePanel extends JPanel {
         dice.setBounds(400, 275, 150, 40);
         dice.setFont(Constants.buttons);
 
+        //dice labels
         //first dice label
         dice1Label = new DiceLabel();
         dice1Label.setBounds(900, 350, 200, 75);
@@ -133,13 +136,18 @@ public class DicePanel extends JPanel {
         sumLabel.setBounds(1300, 825, 200, 75);
         sumLabel.setVisible(false);
 
-        //input error label
-        inputErrorLabel = new ErrorLabel("Error: invalid input");
-        inputErrorLabel.setBounds(900, 350, 700, 15);
-
+        //error labels
         //empty error label
         emptyErrorLabel = new ErrorLabel("Error: empty input");
         emptyErrorLabel.setBounds(900, 350, 700, 75);
+
+        //sides error label
+        sidesErrorLabel = new ErrorLabel("Error: invalid sides");
+        sidesErrorLabel.setBounds(900, 350, 700, 75);
+
+        //dice quantity label
+        quantityErrorLabel = new ErrorLabel("Error: too many dice");
+        quantityErrorLabel.setBounds(900, 350, 700, 75);
     }
 
     private void initializeTextFields() {
@@ -151,9 +159,12 @@ public class DicePanel extends JPanel {
         add(dice);
         add(rollButton);
         add(exitButton);
-        add(emptyErrorLabel);
-        add(inputErrorLabel);
+
         add(entryField);
+
+        add(emptyErrorLabel);
+        add(sidesErrorLabel);
+        add(quantityErrorLabel);
 
         add(dice1Label);
         add(dice2Label);
@@ -165,26 +176,47 @@ public class DicePanel extends JPanel {
         add(dice8Label);
         add(dice9Label);
         add(dice10Label);
+        add(sumLabel);
     }
 
     private void roll() {
-        //TODO: implement regex parser
+        hideErrorLabels();
         String input = entryField.getText();
         int times = 1;
         int sides = 0;
         long sum = 0;
         long x;
         if (input.matches("\\d+d\\d+")) {
-            emptyErrorLabel.setVisible(false);
             String[] s = input.split("d");
             sides = Integer.parseInt(s[1]);
             times = Integer.parseInt(s[0]);
         } else if (input.matches("d\\d+")) {
-            emptyErrorLabel.setVisible(false);
             input = input.substring(1);
             sides = Integer.parseInt(input);
         } else if (input.equals("")) {
+            hideDiceLabels();
             emptyErrorLabel.setVisible(true);
+            return;
+        }
+
+        if(times > 10) {
+            hideDiceLabels();
+            quantityErrorLabel.setVisible(true);
+            return;
+        }
+
+        switch(sides) {
+            case 4:
+            case 6:
+            case 8:
+            case 10:
+            case 12:
+            case 20:
+                break;
+            default:
+                hideDiceLabels();
+                sidesErrorLabel.setVisible(true);
+                return;
         }
 
         for (int i = 0; i < times; i++) {
@@ -231,13 +263,30 @@ public class DicePanel extends JPanel {
                     dice10Label.setText("" + x);
                     dice10Label.setVisible(true);
                 }
-                default -> {
-
-                }
             }
         }
 
         sumLabel.setText("" + sum);
         sumLabel.setVisible(true);
+    }
+
+    private void hideErrorLabels() {
+        quantityErrorLabel.setVisible(false);
+        emptyErrorLabel.setVisible(false);
+        sidesErrorLabel.setVisible(false);
+    }
+
+    private void hideDiceLabels() {
+        dice1Label.setVisible(false);
+        dice2Label.setVisible(false);
+        dice3Label.setVisible(false);
+        dice4Label.setVisible(false);
+        dice5Label.setVisible(false);
+        dice6Label.setVisible(false);
+        dice7Label.setVisible(false);
+        dice8Label.setVisible(false);
+        dice9Label.setVisible(false);
+        dice10Label.setVisible(false);
+        sumLabel.setVisible(false);
     }
 }
