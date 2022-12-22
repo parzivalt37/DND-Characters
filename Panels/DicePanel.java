@@ -181,6 +181,7 @@ public class DicePanel extends JPanel {
 
     private void roll() {
         hideErrorLabels();
+        hideDiceLabels();
         String input = entryField.getText();
         int times = 1;
         int sides = 0;
