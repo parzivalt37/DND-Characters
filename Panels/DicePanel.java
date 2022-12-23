@@ -9,6 +9,7 @@ import com.dndcharacters.s1project.Components.TextArea;
 import com.dndcharacters.s1project.Components.Button;
 import com.dndcharacters.s1project.Components.DiceLabel;
 import com.dndcharacters.s1project.Constants;
+import com.dndcharacters.s1project.Main;
 
 import javax.swing.JPanel;
 
@@ -37,6 +38,7 @@ public class DicePanel extends JPanel {
     //Buttons
     private static Button rollButton;
     private static Button exitButton;
+    private static Button mainButton;
 
     public DicePanel() {
         setSize(1920, 1080);
@@ -72,6 +74,14 @@ public class DicePanel extends JPanel {
         exitButton = new Button("Exit");
         exitButton.setBounds(0, 0, 200, 75);
         exitButton.addActionListener(e -> System.exit(0));
+
+        //back to main button
+        mainButton = new Button("Back to main");
+        mainButton.setBounds(200, 0, 200, 75);
+        mainButton.addActionListener(e -> {
+            setVisible(false);
+            Main.mp.setVisible(true);
+        });
     }
 
     private void initializeLabels() {
@@ -156,9 +166,9 @@ public class DicePanel extends JPanel {
     }
 
     private void addComponents() {
-        add(dice);
         add(rollButton);
         add(exitButton);
+        add(mainButton);
 
         add(entryField);
 
@@ -166,6 +176,7 @@ public class DicePanel extends JPanel {
         add(sidesErrorLabel);
         add(quantityErrorLabel);
 
+        add(dice);
         add(dice1Label);
         add(dice2Label);
         add(dice3Label);

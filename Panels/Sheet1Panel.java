@@ -24,6 +24,8 @@ public class Sheet1Panel extends JPanel {
     private static Button nextPage;
     /** Save button to be displayed on every panel */
     public static Button saveButton;
+    /** Return to mainpanel button */
+    private static Button mainButton;
 
     //JLabels
     //General character information
@@ -723,6 +725,13 @@ public class Sheet1Panel extends JPanel {
         });
         //TODO: make save and exit buttons separate
 
+        //Main button initialization
+        mainButton = new Button("Back to main");
+        mainButton.setBounds(200, 0, 200, 75);
+        mainButton.addActionListener(e -> {
+            setVisible(false);
+            Main.mp.setVisible(true);
+        });
 
         //TODO: add navigation to dice roller menu
     }
@@ -851,6 +860,7 @@ public class Sheet1Panel extends JPanel {
         add(passiveWisdomLabel);
         add(nextPage);
         add(saveButton);
+        add(mainButton);
     }
 
     /** Stores information from every JTextField, JComboBox, and JRadioButton in the data class object */

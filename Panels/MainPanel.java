@@ -58,7 +58,7 @@ public class MainPanel extends JPanel {
         frame.setSize(1920, 1080);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
-        icon = ImageIO.read(new File("./src/main/java/com/dndcharacters/s1project/Panels/Logo.png"));
+        icon = ImageIO.read(new File("./src/main/java/com/dndcharacters/s1project/Resources/Logo.png"));
         frame.setIconImage(icon);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
@@ -67,7 +67,7 @@ public class MainPanel extends JPanel {
         setLayout(null);
 
         //Initializes image from local disk
-        backgroundImage = ImageIO.read(new File("./src/main/java/com/dndcharacters/s1project/Panels/Background.jpg"));
+        backgroundImage = ImageIO.read(new File("./src/main/java/com/dndcharacters/s1project/Resources/Background.jpg"));
 
         initializeButtons();
         initializeLabels();
