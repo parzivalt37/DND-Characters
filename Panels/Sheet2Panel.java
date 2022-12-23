@@ -1,5 +1,6 @@
 package com.dndcharacters.s1project.Panels;
 
+import com.dndcharacters.s1project.Main;
 import com.dndcharacters.s1project.Components.Label;
 import com.dndcharacters.s1project.Components.Button;
 import com.dndcharacters.s1project.Components.TextField;
@@ -56,8 +57,9 @@ public class Sheet2Panel extends JPanel {
     public static TextArea otherProficienciesArea;
 
     //JButtons
-    public static Button previousPage;
-    public static Button saveButton;
+    private static Button previousPage;
+    private static Button saveButton;
+    private static Button mainButton;
 
     /** Constructor, called in MainPanel: configures frame, initializes and adds all components*/
     public Sheet2Panel() {
@@ -241,6 +243,13 @@ public class Sheet2Panel extends JPanel {
             catch (Exception ex) { ex.printStackTrace(); }
             System.exit(0);
         });
+
+        mainButton = new Button("Back to main");
+        mainButton.setBounds(200, 0, 200, 75);
+        mainButton.addActionListener(e -> {
+            setVisible(false);
+            Main.mp.setVisible(true);
+        });
     }
 
     /** Stores information from every JTextField and JTextArea in the data class object */
@@ -319,5 +328,6 @@ public class Sheet2Panel extends JPanel {
         add(otherProficienciesArea);
         add(saveButton);
         add(previousPage);
+        add(mainButton);
     }
 }
