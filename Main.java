@@ -7,12 +7,16 @@ import com.dndcharacters.s1project.Panels.*;
  * @author S. Mahon
  * @version 12.15.2022
  */
+@SuppressWarnings("ClassEscapesDefinedScope")
 public class Main {
+
     public static void main(String[] args) {
         try {
-            new MainPanel();
+            mp = new MainPanel();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
+    public static MainPanel mp;
 }

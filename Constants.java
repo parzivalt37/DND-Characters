@@ -9,6 +9,12 @@ public class Constants {
     public static Font labels = new Font("Serif", Font.BOLD, 20);
     /** Font object for buttons */
     public static Font buttons = new Font("Serif", Font.BOLD, 30);
+    /** Title font */
+    public static Font titleFont = new Font("DialogInput", Font.BOLD, 90);
+    /** Error message font */
+    public static Font errorFont = new Font("Serif", Font.BOLD, 60);
+    /** Dice text box font */
+    public static Font diceFont = new Font("DialogInput", Font.BOLD, 60);
 
     /** Defines every race in D&D, used for the races JComboBox in Sheet1Panel */
     public enum Races {

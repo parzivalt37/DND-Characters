@@ -1,65 +1,65 @@
 package com.dndcharacters.s1project.Panels;
 
-import com.dndcharacters.s1project.Constants;
+import com.dndcharacters.s1project.Main;
+import com.dndcharacters.s1project.Components.Label;
+import com.dndcharacters.s1project.Components.Button;
+import com.dndcharacters.s1project.Components.TextField;
+import com.dndcharacters.s1project.Components.TextArea;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 /** Sheet2Panel: extends JPanel and shows all labels, text fields, etc. on page 2
  * @author S. Mahon
  * @version 12.19.2022
  */
+@SuppressWarnings("DuplicatedCode")
 public class Sheet2Panel extends JPanel {
 
     //JLabels
-    private static JLabel alliesLabel;
-    private static JLabel featuresLabel;
-    private static JLabel backstoryLabel;
-    private static JLabel treasureLabel;
-    private static JLabel ageLabel;
-    private static JLabel heightLabel;
-    private static JLabel weightLabel;
-    private static JLabel eyesLabel;
-    private static JLabel skinLabel;
-    private static JLabel hairLabel;
-    private static JLabel personalityTraitsLabel;
-    private static JLabel idealsLabel;
-    private static JLabel bondsLabel;
-    private static JLabel flawsLabel;
-    private static JLabel additionalFeaturesLabel;
-    private static JLabel otherProficienciesLabel;
-    private static JLabel languagesLabel;
+    private static Label alliesLabel;
+    private static Label featuresLabel;
+    private static Label backstoryLabel;
+    private static Label treasureLabel;
+    private static Label ageLabel;
+    private static Label heightLabel;
+    private static Label weightLabel;
+    private static Label eyesLabel;
+    private static Label skinLabel;
+    private static Label hairLabel;
+    private static Label personalityTraitsLabel;
+    private static Label idealsLabel;
+    private static Label bondsLabel;
+    private static Label flawsLabel;
+    private static Label additionalFeaturesLabel;
+    private static Label otherProficienciesLabel;
+    private static Label languagesLabel;
 
     //JTextFields
-    public static JTextArea alliesArea;
-    public static JTextArea featuresArea;
-    public static JTextArea backstoryArea;
-    public static JTextArea treasureArea;
-    public static JTextField ageField;
-    public static JTextField heightField;
-    public static JTextField weightField;
-    public static JTextField eyesField;
-    public static JTextField skinField;
-    public static JTextField hairField;
-    public static JTextArea personalityTraitsArea;
-    public static JTextArea idealsArea;
-    public static JTextArea bondsArea;
-    public static JTextArea flawsArea;
-    public static JTextArea additionalFeaturesArea;
-    public static JTextArea otherProficienciesArea;
+    public static TextArea alliesArea;
+    public static TextArea featuresArea;
+    public static TextArea backstoryArea;
+    public static TextArea treasureArea;
+    public static TextField ageField;
+    public static TextField heightField;
+    public static TextField weightField;
+    public static TextField eyesField;
+    public static TextField skinField;
+    public static TextField hairField;
+    public static TextArea personalityTraitsArea;
+    public static TextArea idealsArea;
+    public static TextArea bondsArea;
+    public static TextArea flawsArea;
+    public static TextArea additionalFeaturesArea;
+    public static TextArea otherProficienciesArea;
 
     //JButtons
-    public static JButton previousPage;
-    public static JButton saveButton;
+    private static Button previousPage;
+    private static Button saveButton;
+    private static Button mainButton;
 
     /** Constructor, called in MainPanel: configures frame, initializes and adds all components*/
     public Sheet2Panel() {
@@ -69,46 +69,9 @@ public class Sheet2Panel extends JPanel {
         initializeLabels();
         initializeTextFieldsAreas();
         initializeButtons();
-
-        add(alliesLabel);
-        add(featuresLabel);
-        add(backstoryLabel);
-        add(treasureLabel);
-        add(ageLabel);
-        add(heightLabel);
-        add(weightLabel);
-        add(eyesLabel);
-        add(skinLabel);
-        add(hairLabel);
-        add(personalityTraitsLabel);
-        add(idealsLabel);
-        add(bondsLabel);
-        add(flawsLabel);
-        add(additionalFeaturesLabel);
-        add(otherProficienciesLabel);
-        add(languagesLabel);
+        addComponents();
 
 
-        add(alliesArea);
-        add(featuresArea);
-        add(backstoryArea);
-        add(treasureArea);
-        add(ageField);
-        add(heightField);
-        add(weightField);
-        add(eyesField);
-        add(skinField);
-        add(hairField);
-        add(personalityTraitsArea);
-        add(idealsArea);
-        add(bondsArea);
-        add(flawsArea);
-        add(additionalFeaturesArea);
-        add(otherProficienciesArea);
-
-
-        add(saveButton);
-        add(previousPage);
         MainPanel.frame.add(this);
         setVisible(true);
     }
@@ -127,226 +90,165 @@ public class Sheet2Panel extends JPanel {
     /** Contains setup for all JLabels on page 2 of the editor: sets text, font, boundaries, and text color */
     private void initializeLabels() {
         //allies label
-        alliesLabel = new JLabel("Allies:");
-        alliesLabel.setFont(Constants.labels);
+        alliesLabel = new Label("Allies:");
         alliesLabel.setBounds(0, 100, 200, 50);
-        alliesLabel.setForeground(Color.WHITE);
 
         //additional features label
-        featuresLabel = new JLabel("Features & traits:");
-        featuresLabel.setFont(Constants.labels);
+        featuresLabel = new Label("Features & traits:");
         featuresLabel.setBounds(0, 300, 200, 50);
-        featuresLabel.setForeground(Color.WHITE);
 
         //backstory label
-        backstoryLabel = new JLabel("Backstory:");
-        backstoryLabel.setFont(Constants.labels);
+        backstoryLabel = new Label("Backstory:");
         backstoryLabel.setBounds(0, 500, 200, 50);
-        backstoryLabel.setForeground(Color.WHITE);
 
         //Treasure label
-        treasureLabel = new JLabel("Treasure:");
-        treasureLabel.setFont(Constants.labels);
+        treasureLabel = new Label("Treasure:");
         treasureLabel.setBounds(0, 700, 200, 50);
-        treasureLabel.setForeground(Color.WHITE);
 
         //Age label
-        ageLabel = new JLabel("Age:");
-        ageLabel.setFont(Constants.labels);
+        ageLabel = new Label("Age:");
         ageLabel.setBounds(0, 900, 200, 50);
-        ageLabel.setForeground(Color.WHITE);
 
         //Height label
-        heightLabel = new JLabel("Height:");
-        heightLabel.setFont(Constants.labels);
+        heightLabel = new Label("Height:");
         heightLabel.setBounds(0, 950, 200, 50);
-        heightLabel.setForeground(Color.WHITE);
 
         //Weight label
-        weightLabel = new JLabel("Weight:");
-        weightLabel.setFont(Constants.labels);
+        weightLabel = new Label("Weight:");
         weightLabel.setBounds(0, 1000, 200, 50);
-        weightLabel.setForeground(Color.WHITE);
 
         //Eyes label
-        eyesLabel = new JLabel("Eyes:");
-        eyesLabel.setFont(Constants.labels);
+        eyesLabel = new Label("Eyes:");
         eyesLabel.setBounds(800, 100, 200, 50);
-        eyesLabel.setForeground(Color.WHITE);
 
         //Skin label
-        skinLabel = new JLabel("Skin:");
-        skinLabel.setFont(Constants.labels);
+        skinLabel = new Label("Skin:");
         skinLabel.setBounds(800, 150, 200, 50);
-        skinLabel.setForeground(Color.WHITE);
 
         //Hair label
-        hairLabel = new JLabel("Hair:");
-        hairLabel.setFont(Constants.labels);
+        hairLabel = new Label("Hair:");
         hairLabel.setBounds(800, 200, 200, 50);
-        hairLabel.setForeground(Color.WHITE);
 
         //Personality traits label
-        personalityTraitsLabel = new JLabel("Personality traits:");
-        personalityTraitsLabel.setFont(Constants.labels);
+        personalityTraitsLabel = new Label("Personality traits:");
         personalityTraitsLabel.setBounds(800, 250, 200, 50);
-        personalityTraitsLabel.setForeground(Color.WHITE);
 
         //Ideals label
-        idealsLabel = new JLabel("Ideals:");
-        idealsLabel.setFont(Constants.labels);
+        idealsLabel = new Label("Ideals:");
         idealsLabel.setBounds(800, 450, 200, 50);
-        idealsLabel.setForeground(Color.WHITE);
 
         //Bonds label
-        bondsLabel = new JLabel("Bonds:");
-        bondsLabel.setFont(Constants.labels);
+        bondsLabel = new Label("Bonds:");
         bondsLabel.setBounds(800, 650, 200, 50);
-        bondsLabel.setForeground(Color.WHITE);
 
         //Flaws label
-        flawsLabel = new JLabel("Flaws:");
-        flawsLabel.setFont(Constants.labels);
+        flawsLabel = new Label("Flaws:");
         flawsLabel.setBounds(800, 850, 200, 50);
-        flawsLabel.setForeground(Color.WHITE);
 
         //Features label
-        additionalFeaturesLabel = new JLabel("Additional features:");
-        additionalFeaturesLabel.setFont(Constants.labels);
+        additionalFeaturesLabel = new Label("Additional features:");
         additionalFeaturesLabel.setBounds(1400, 100, 200, 50);
-        additionalFeaturesLabel.setForeground(Color.WHITE);
 
-        //Other proficiences label
-        otherProficienciesLabel = new JLabel("Other proficiencies");
-        otherProficienciesLabel.setFont(Constants.labels);
+        //Other proficiencies label
+        otherProficienciesLabel = new Label("Other proficiencies");
         otherProficienciesLabel.setBounds(1400, 300, 300, 50);
-        otherProficienciesLabel.setForeground(Color.WHITE);
 
         //& languages label
-        languagesLabel = new JLabel("& languages:");
-        languagesLabel.setFont(Constants.labels);
+        languagesLabel = new Label("& languages:");
         languagesLabel.setBounds(1400, 330, 200, 50);
-        languagesLabel.setForeground(Color.WHITE);
     }
 
     /** Contains setup for all JTextFields and JTextAreas on page 2 of the editor: sets bounds, fonts, and line wrap */
     private void initializeTextFieldsAreas() {
         //allies text area
-        alliesArea = new JTextArea();
+        alliesArea = new TextArea();
         alliesArea.setBounds(200, 100, 250, 175);
-        alliesArea.setFont(Constants.labels);
-        alliesArea.setLineWrap(true);
 
         //additional features text area
-        featuresArea = new JTextArea();
+        featuresArea = new TextArea();
         featuresArea.setBounds(200, 300, 250, 175);
-        featuresArea.setFont(Constants.labels);
-        featuresArea.setLineWrap(true);
 
         //backstory text area
-        backstoryArea = new JTextArea();
+        backstoryArea = new TextArea();
         backstoryArea.setBounds(200, 500, 250, 175);
-        backstoryArea.setFont(Constants.labels);
-        backstoryArea.setLineWrap(true);
 
         //treasure area
-        treasureArea = new JTextArea();
+        treasureArea = new TextArea();
         treasureArea.setBounds(200, 700, 250, 175);
-        treasureArea.setFont(Constants.labels);
-        treasureArea.setLineWrap(true);
 
         //age field
-        ageField = new JTextField();
+        ageField = new TextField();
         ageField.setBounds(200, 900, 100, 40);
-        ageField.setFont(Constants.labels);
 
         //height field
-        heightField = new JTextField();
+        heightField = new TextField();
         heightField.setBounds(200, 950, 100, 40);
-        heightField.setFont(Constants.labels);
 
         //weight field
-        weightField = new JTextField();
+        weightField = new TextField();
         weightField.setBounds(200, 1000, 100, 40);
-        weightField.setFont(Constants.labels);
 
         //eyes field
-        eyesField = new JTextField();
+        eyesField = new TextField();
         eyesField.setBounds(1000, 100, 100, 40);
-        eyesField.setFont(Constants.labels);
 
         //skin field
-        skinField = new JTextField();
+        skinField = new TextField();
         skinField.setBounds(1000, 150, 100, 40);
-        skinField.setFont(Constants.labels);
 
         //hair field
-        hairField = new JTextField();
+        hairField = new TextField();
         hairField.setBounds(1000, 200, 100, 40);
-        hairField.setFont(Constants.labels);
 
         //personality traits area
-        personalityTraitsArea = new JTextArea();
+        personalityTraitsArea = new TextArea();
         personalityTraitsArea.setBounds(1000, 250, 250, 175);
-        personalityTraitsArea.setFont(Constants.labels);
-        personalityTraitsArea.setLineWrap(true);
 
         //ideals area
-        idealsArea = new JTextArea();
+        idealsArea = new TextArea();
         idealsArea.setBounds(1000, 450, 250, 175);
-        idealsArea.setFont(Constants.labels);
-        idealsArea.setLineWrap(true);
 
         //bonds area
-        bondsArea = new JTextArea();
+        bondsArea = new TextArea();
         bondsArea.setBounds(1000, 650, 250, 175);
-        bondsArea.setFont(Constants.labels);
-        bondsArea.setLineWrap(true);
 
         //flaws area
-        flawsArea = new JTextArea();
+        flawsArea = new TextArea();
         flawsArea.setBounds(1000, 850, 250, 175);
-        flawsArea.setFont(Constants.labels);
-        flawsArea.setLineWrap(true);
 
         //Additional features area
-        additionalFeaturesArea = new JTextArea();
+        additionalFeaturesArea = new TextArea();
         additionalFeaturesArea.setBounds(1600, 100, 250, 175);
-        additionalFeaturesArea.setFont(Constants.labels);
-        additionalFeaturesArea.setLineWrap(true);
 
         //other proficiencies area
-        otherProficienciesArea = new JTextArea();
+        otherProficienciesArea = new TextArea();
         otherProficienciesArea.setBounds(1600, 300, 250, 175);
-        otherProficienciesArea.setFont(Constants.labels);
-        otherProficienciesArea.setLineWrap(true);
     }
 
     /** Contains setup for all JButtons on page 2 of the editor: sets bounds, fonts, and action listeners */
     private void initializeButtons() {
-        previousPage = new JButton("Last page");
-        previousPage.setFont(Constants.buttons);
+        previousPage = new Button("Last page");
         previousPage.setBounds(1720, 0, 200, 75);
-        previousPage.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 setVisible(false);
-                 MainPanel.s1p.setVisible(true);
-            }
+        previousPage.addActionListener(e -> {
+             setVisible(false);
+             MainPanel.s1p.setVisible(true);
         });
 
-        saveButton = new JButton("Save and exit");
+        saveButton = new Button("Save and exit");
         saveButton.setBounds(0, 0, 200, 75);
-        saveButton.setFont(Constants.buttons);
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MainPanel.s1p.save();
-                save();
-                try { MainPanel.serialize();}
-                catch (Exception ex) { ex.printStackTrace(); }
-                System.exit(0);
-            }
+        saveButton.addActionListener(e -> {
+            MainPanel.s1p.save();
+            save();
+            try { MainPanel.serialize();}
+            catch (Exception ex) { ex.printStackTrace(); }
+            System.exit(0);
+        });
+
+        mainButton = new Button("Back to main");
+        mainButton.setBounds(200, 0, 200, 75);
+        mainButton.addActionListener(e -> {
+            setVisible(false);
+            Main.mp.setVisible(true);
         });
     }
 
@@ -388,5 +290,44 @@ public class Sheet2Panel extends JPanel {
         flawsArea.setText(MainPanel.sheet.s2.getFlaws());
         additionalFeaturesArea.setText(MainPanel.sheet.s2.getAdditionalFeatures());
         otherProficienciesArea.setText(MainPanel.sheet.s2.getOtherProficiencies());
+    }
+
+    private void addComponents() {
+        add(alliesLabel);
+        add(featuresLabel);
+        add(backstoryLabel);
+        add(treasureLabel);
+        add(ageLabel);
+        add(heightLabel);
+        add(weightLabel);
+        add(eyesLabel);
+        add(skinLabel);
+        add(hairLabel);
+        add(personalityTraitsLabel);
+        add(idealsLabel);
+        add(bondsLabel);
+        add(flawsLabel);
+        add(additionalFeaturesLabel);
+        add(otherProficienciesLabel);
+        add(languagesLabel);
+        add(alliesArea);
+        add(featuresArea);
+        add(backstoryArea);
+        add(treasureArea);
+        add(ageField);
+        add(heightField);
+        add(weightField);
+        add(eyesField);
+        add(skinField);
+        add(hairField);
+        add(personalityTraitsArea);
+        add(idealsArea);
+        add(bondsArea);
+        add(flawsArea);
+        add(additionalFeaturesArea);
+        add(otherProficienciesArea);
+        add(saveButton);
+        add(previousPage);
+        add(mainButton);
     }
 }

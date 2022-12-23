@@ -17,7 +17,6 @@ public class Sheet1Fields implements Serializable {
     private Constants.Classes classes;
     /** Character level */
     private String level;
-
     /** Player name */
     private String pName;
     /** Character name */
@@ -45,7 +44,7 @@ public class Sheet1Fields implements Serializable {
     private boolean inspiration;
     /** Proficiency bonus modifier*/
     private String proficiencybonus;
-    /** Character's ifficulty class*/
+    /** Character's difficulty class*/
     private String difficultyclass;
     /** Character's armor class (target roll for an attack) */
     private String armorclass;
@@ -59,18 +58,15 @@ public class Sheet1Fields implements Serializable {
     private String passiveWisdom;
 
     /** ArrayList of HP
-     * Order: [Current hit points, maximum hit points, temporary hit points]
-     */
+     * Order: [Current hit points, maximum hit points, temporary hit points] */
     public ArrayList<String> hp;
 
     /** ArrayList of character's attacks
-     * Ordered by the list on Sheet1Panel
-     */
+     * Ordered by the list on Sheet1Panel */
     public ArrayList<Records.Attack> attacks;
 
     /** ArrayList of character's currency
-     * Order: [copper, silver, electrum, gold, platinum]
-     */
+     * Order: [copper, silver, electrum, gold, platinum] */
     public ArrayList<Records.Currency> currency;
 
     /** Constructor, called in sheet: sets up all fields as blank */
